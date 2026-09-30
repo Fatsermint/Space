@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d4mo8inrt3x10"]
+
+[ext_resource type="Script" uid="uid://clr4qo5juqok0" path="res://character_body_2d.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://dc10lwmf4013d" path="res://Assets/SpaceRage/SpaceRage/Player/player_b_l1.png" id="2_6t5aa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1hc3"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=822506584]
+rotation = 3.1415927
+script = ExtResource("1_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=818143741]
+shape = SubResource("CircleShape2D_g1hc3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1549867640]
+rotation = 1.5707964
+texture = ExtResource("2_6t5aa")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=767145094]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1342128248]
+rotation = -1.5707964
