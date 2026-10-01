@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d4mo8inrt3x10" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://dvga27q8jy15o" path="res://Assets/SpaceRage/SpaceRage/Player/player_r_r1.png" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://c2q0yab5yi4ga" path="res://Scenes/bullet.tscn" id="3_8gbba"]
 
 [node name="Node2D" type="Node2D" unique_id=1427620502]
 
@@ -10,3 +11,5 @@ rotation = -3.1415925
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1480900810]
 texture = ExtResource("2_bo1nx")
+
+[node name="UI" parent="." unique_id=1979279968 instance=ExtResource("3_8gbba")]

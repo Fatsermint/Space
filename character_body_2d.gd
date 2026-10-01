@@ -1,27 +1,20 @@
 extends CharacterBody2D
 
-var gas = 0.5
+var speed: float = 100
 
-
+var bullet = preload("res://Scenes/bullet.tscn").instantiate()
 
 func _physics_process(delta: float) -> void:
+	var input_direction = Input.get_vector("left", "right", "up", "down")
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		gas += 2 *delta
-		if gas > 10:
-			gas = 10
-		print(gas)
-		
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		gas -= 2 *delta
-		if gas < 0.5:
-			gas = 0.5
-		print(gas)
-		
+	velocity = input_direction* speed
 	
-	look_at(get_global_mouse_position())
+	if Input.is_action_just_pressed("fire"):
+		var bul = bullet.duplicate()
+		bul.name = "bullet"
+		self.add_child(bul)
+		print(bul)
 	
-	var vel:Vector2 = (get_global_mouse_position() - global_position)
-	
-	velocity = vel * gas
 	move_and_slide()
+
+	
