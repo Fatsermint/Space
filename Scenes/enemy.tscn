@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://busrbmd4dqrwr"]
+
+[ext_resource type="Texture2D" uid="uid://8bywvx1w6uw" path="res://Assets/SpaceRage/SpaceRage/Enemies/enemy_1_b_m.png" id="1_hghv2"]
+[ext_resource type="Script" uid="uid://c36lfc77xxfc3" path="res://Scenes/enemy.gd" id="2_1f0kj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1hc3"]
+size = Vector2(47, 9)
+
+[node name="enemy" type="CharacterBody2D" unique_id=603866624]
+script = ExtResource("2_1f0kj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=935375341]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_g1hc3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=24243486]
+texture = ExtResource("1_hghv2")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

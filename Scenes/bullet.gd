@@ -2,6 +2,4 @@ extends Node2D
 
 
 func _physics_process(delta: float) -> void:
-	self.position.y -= -3
-	
-	
+	self.position.y -= 10	

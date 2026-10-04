@@ -15,5 +15,3 @@ shape = SubResource("CircleShape2D_g1hc3")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1549867640]
 rotation = 3.1415927
 texture = ExtResource("2_6t5aa")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=767145094]

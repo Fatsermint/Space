@@ -3,8 +3,16 @@
 [ext_resource type="Script" uid="uid://cq7klo7ivdlaa" path="res://Scenes/bullet.gd" id="1_oduel"]
 [ext_resource type="Texture2D" uid="uid://dma87tyjcp1we" path="res://Assets/SpaceRage/SpaceRage/FX/vulcan_1.png" id="1_xjght"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1hc3"]
+size = Vector2(6, 20)
+
 [node name="bullet" type="Node2D" unique_id=1080463826]
 script = ExtResource("1_oduel")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=556574365]
 texture = ExtResource("1_xjght")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=199583082]
+shape = SubResource("RectangleShape2D_g1hc3")
+
+[connection signal="child_entered_tree" from="Sprite2D/CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]
