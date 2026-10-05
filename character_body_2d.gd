@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 			bul.position.y = 0 -8
 		
 		
-		print(bul)
+	
 	
 	move_and_slide()
 

@@ -1,20 +1,19 @@
 [gd_scene format=3 uid="uid://busrbmd4dqrwr"]
 
 [ext_resource type="Texture2D" uid="uid://8bywvx1w6uw" path="res://Assets/SpaceRage/SpaceRage/Enemies/enemy_1_b_m.png" id="1_hghv2"]
-[ext_resource type="Script" uid="uid://c36lfc77xxfc3" path="res://Scenes/enemy.gd" id="2_1f0kj"]
+[ext_resource type="Script" uid="uid://bec1qmbufp6gk" path="res://enemy.gd" id="2_1f0kj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1hc3"]
-size = Vector2(47, 9)
+size = Vector2(48, 20)
 
-[node name="enemy" type="CharacterBody2D" unique_id=603866624]
+[node name="enemy" type="Sprite2D" unique_id=61236115]
+texture = ExtResource("1_hghv2")
 script = ExtResource("2_1f0kj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=935375341]
-position = Vector2(0.5, 1.5)
+[node name="Area2D" type="Area2D" parent="." unique_id=457319426]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2039315555]
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_g1hc3")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=24243486]
-texture = ExtResource("1_hghv2")
-
-[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
-[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
