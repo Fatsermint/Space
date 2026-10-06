@@ -13,5 +13,5 @@ position = Vector2(0, -453)
 
 [node name="bullets" type="Node" parent="." unique_id=712410404]
 
-[node name="enemy" parent="." unique_id=2070858551 instance=ExtResource("4_jjvhh")]
-position = Vector2(0, -632)
+[node name="enemy" parent="." unique_id=61236115 instance=ExtResource("4_jjvhh")]
+position = Vector2(0, -727)

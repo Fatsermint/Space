@@ -14,6 +14,10 @@ config/name="Space"
 run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[autoload]
+
+GlobalVariables="*uid://b4bautuoy0tcu"
+
 [display]
 
 window/size/viewport_width=600
@@ -28,6 +32,10 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [global_group]
 
 bullets="player's bullets"
+
+[gui]
+
+theme/custom="uid://w3111ry8qe01"
 
 [input]
 
