@@ -1,17 +1,11 @@
 [gd_scene format=3 uid="uid://bgb80gyhttkis"]
 
-[ext_resource type="PackedScene" uid="uid://d4mo8inrt3x10" path="res://Scenes/player.tscn" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://busrbmd4dqrwr" path="res://Scenes/enemy.tscn" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://dtd1dxgtoj7m4" path="res://Scenes/main.gd" id="1_jjgbg"]
 
-[node name="Node2D" type="Node2D" unique_id=1427620502]
-
-[node name="CharacterBody2D" parent="." unique_id=822506584 instance=ExtResource("1_jjgbg")]
-rotation = -3.1415925
+[node name="main" type="Node2D" unique_id=1427620502]
+script = ExtResource("1_jjgbg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1583426752]
 position = Vector2(0, -453)
 
-[node name="bullets" type="Node" parent="." unique_id=712410404]
-
-[node name="enemy" parent="." unique_id=61236115 instance=ExtResource("4_jjvhh")]
-position = Vector2(0, -727)
+[node name="bullets" type="Node" parent="." unique_id=201460963]

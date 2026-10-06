@@ -1,5 +1,5 @@
 extends Sprite2D
-@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var healthBar: ProgressBar = $health
 
 var hp = 100
 func _process(delta: float) -> void:
@@ -8,8 +8,12 @@ func _process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("bullets"):
 		print("hit")
-		progress_bar.value -= GlobalVariables.bulletDamages[0]
-		if progress_bar.value == 0:
+		if (healthBar.value - GlobalVariables.bulletDamages[0]) < 0:
+			healthBar.value = 0
+		else:
+			
+			healthBar.value -= GlobalVariables.bulletDamages[0]
+		if healthBar.value == 0:
 			print("a")
 			$AnimationPlayer.play("explosion")
 			
