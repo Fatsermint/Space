@@ -5,7 +5,7 @@
 [node name="main" type="Node2D" unique_id=1427620502]
 script = ExtResource("1_jjgbg")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1583426752]
+[node name="Camera" type="Camera2D" parent="." unique_id=1583426752]
 position = Vector2(0, -453)
 
 [node name="bullets" type="Node" parent="." unique_id=201460963]

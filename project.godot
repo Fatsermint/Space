@@ -32,6 +32,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [global_group]
 
 bullets="player's bullets"
+enemy=""
 
 [gui]
 
