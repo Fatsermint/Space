@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d4mo8inrt3x10"]
 
-[ext_resource type="Script" uid="uid://clr4qo5juqok0" path="res://character_body_2d.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://clr4qo5juqok0" path="res://Scripts/character_body_2d.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dc10lwmf4013d" path="res://Assets/SpaceRage/SpaceRage/Player/player_b_l1.png" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://ck4vskmy4383n" path="res://Assets/drawing.svg" id="3_6t5aa"]
 

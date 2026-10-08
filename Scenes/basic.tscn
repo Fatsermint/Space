@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://busrbmd4dqrwr"]
 
 [ext_resource type="Texture2D" uid="uid://8bywvx1w6uw" path="res://Assets/SpaceRage/SpaceRage/Enemies/enemy_1_b_m.png" id="1_ucrkb"]
-[ext_resource type="Script" uid="uid://bec1qmbufp6gk" path="res://enemy.gd" id="2_cgof8"]
+[ext_resource type="Script" uid="uid://bec1qmbufp6gk" path="res://Scripts/enemy.gd" id="2_cgof8"]
 [ext_resource type="Texture2D" uid="uid://sjxk1xecwj24" path="res://Assets/SpaceRage/SpaceRage/Explosions/explosion_1_01.png" id="3_y123b"]
 [ext_resource type="Texture2D" uid="uid://deal6rhwvitk1" path="res://Assets/SpaceRage/SpaceRage/Explosions/explosion_1_02.png" id="4_yurh1"]
 [ext_resource type="Texture2D" uid="uid://dyrel8raj4xrm" path="res://Assets/SpaceRage/SpaceRage/Explosions/explosion_1_03.png" id="5_ssb6y"]

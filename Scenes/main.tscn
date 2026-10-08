@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgb80gyhttkis"]
 
-[ext_resource type="Script" uid="uid://dtd1dxgtoj7m4" path="res://Scenes/main.gd" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://dtd1dxgtoj7m4" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://ro0r0j35augo" path="res://Scenes/damage-ui.tscn" id="2_bo1nx"]
 
 [node name="main" type="Node2D" unique_id=1427620502]
 script = ExtResource("1_jjgbg")
@@ -9,3 +10,8 @@ script = ExtResource("1_jjgbg")
 position = Vector2(0, -453)
 
 [node name="bullets" type="Node" parent="." unique_id=201460963]
+process_mode = 1
+
+[node name="CanvasLayer" parent="." unique_id=1189217763 instance=ExtResource("2_bo1nx")]
+
+[connection signal="addToMainScene" from="CanvasLayer" to="." method="_on_canvas_layer_add_to_main_scene"]

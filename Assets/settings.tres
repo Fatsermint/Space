@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://cgt1ffsqb357o"]
+
+[ext_resource type="FontFile" uid="uid://dkru7m5dcdtds" path="res://Assets/Quantico-Bold.ttf" id="1_5vla0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q03f7"]
+bg_color = Color(0.7073476, 0.5815039, 0.32689583, 1)
+draw_center = false
+
+[resource]
+CheckButton/styles/normal = SubResource("StyleBoxFlat_q03f7")
+Label/fonts/font = ExtResource("1_5vla0")
