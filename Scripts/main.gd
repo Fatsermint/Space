@@ -6,7 +6,7 @@ var settingsScene: PackedScene = preload("res://Scenes/settings.tscn")
 @onready var bullets: Node = $bullets
 
 var settings = settingsScene.instantiate()
-
+var finishing = false
 
 func generate_level(levelNum):
 	var level = GlobalVariables.levels[levelNum]
@@ -18,13 +18,13 @@ func generate_level(levelNum):
 		add_child(player)
 		player.global_position = Vector2(level["player"][0][0], level["player"][0][1])
 		
-		
-	for i in level["basic"]:
-		var basic = basicScene.instantiate()
-		add_child(basic)
-		basic.add_to_group("enemy")
-		basic.global_position = Vector2(i[0][0], i[0][1])
-		basic.find_child("health").value = i[1]
+	if level.has("basic"):
+		for i in level["basic"]:
+			var basic = basicScene.instantiate()
+			add_child(basic)
+			basic.add_to_group("enemy")
+			basic.global_position = Vector2(i[0][0], i[0][1])
+			basic.find_child("health").value = i[1]
 		
 	if level.has("settings") and level["settings"] == true:
 		settings = settingsScene.instantiate()
@@ -51,13 +51,38 @@ func _ready() -> void:
 	generate_level(GlobalVariables.playerInfo["level"])
 
 func _process(delta: float) -> void:
+	if get_tree().get_nodes_in_group("enemy").is_empty() and finishing == false:
+		
+		_finish_level_text()
+		finishing = true
+	if self.find_child("bullets"):
+		
+		for b in self.find_child("bullets").get_children():
+			if b.position.y < -1000:
+				
+				b.queue_free()
+	else:
+		var newNode = Node.new()
+		add_child(newNode)
+		newNode.name = "bullets"
+func _finish_level_text():
+	var position1 = Vector2(-113, -820.0)
+	var position2 = Vector2(-113, 100)
+	
+	
+	var label = $Label
+	var tween = create_tween()
+	label.text = "Level "+str(GlobalVariables.playerInfo["level"]+1) 
+	label.position.y = -1500
+	label.visible = true
+	tween.tween_property(label, "position", position1, 0.2)
+	
+	await get_tree().create_timer(3, false).timeout
+	var tween2 = create_tween()
+	
+	tween2.tween_property(label, "position", position2, 0.2)
+	tween2.tween_callback(_finis_level)
 
-	if get_tree().get_nodes_in_group("enemy").is_empty():
-		_finis_level()
-	for b in self.find_child("bullets").get_children():
-		if b.position.y < -1000:
-			print("bullet deleted")
-			b.queue_free()
 
 func _finis_level():
 	for child in get_children():
@@ -65,3 +90,4 @@ func _finis_level():
 			child.queue_free()
 	GlobalVariables.playerInfo["level"] += 1
 	generate_level(GlobalVariables.playerInfo["level"])
+	finishing = false

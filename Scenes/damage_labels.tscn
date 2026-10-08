@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c4a8fnqd7qxuf"]
+
+[node name="DamageLabels" type="Label" unique_id=2118307664]
+offset_right = 40.0
+offset_bottom = 23.0

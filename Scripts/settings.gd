@@ -15,3 +15,7 @@ func _process(delta: float) -> void:
 	
 func showFps(value):
 	fpsLabel.visible = value
+
+
+func _on_check_button_pressed_limited_fps() -> void:
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)

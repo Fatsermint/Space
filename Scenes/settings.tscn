@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cga58ik6h8fkq"]
 
-[ext_resource type="Script" uid="uid://0ochxqil5jf2" path="res://Scenes/settings.gd" id="1_4geyq"]
+[ext_resource type="Script" uid="uid://0ochxqil5jf2" path="res://Scripts/settings.gd" id="1_4geyq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vvc2"]
 draw_center = false
@@ -44,7 +44,19 @@ text = "Show FPS"
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6vvc2")
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1761984085]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1709090343]
+layout_mode = 2
+text = "Limited FPS"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer3" unique_id=1720312822]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6vvc2")
+
 [node name="Label" type="Label" parent="." unique_id=953862698]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -53,3 +65,4 @@ offset_right = 40.0
 grow_vertical = 0
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/CheckButton" to="." method="_on_check_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/CheckButton" to="." method="_on_check_button_pressed_limited_fps"]

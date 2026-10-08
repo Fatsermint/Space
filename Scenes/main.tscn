@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgb80gyhttkis"]
 
 [ext_resource type="Script" uid="uid://dtd1dxgtoj7m4" path="res://Scripts/main.gd" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://ro0r0j35augo" path="res://Scenes/damage-ui.tscn" id="2_bo1nx"]
+[ext_resource type="FontFile" uid="uid://dkru7m5dcdtds" path="res://Assets/Quantico-Bold.ttf" id="2_bo1nx"]
 
 [node name="main" type="Node2D" unique_id=1427620502]
 script = ExtResource("1_jjgbg")
@@ -10,8 +10,16 @@ script = ExtResource("1_jjgbg")
 position = Vector2(0, -453)
 
 [node name="bullets" type="Node" parent="." unique_id=201460963]
-process_mode = 1
 
-[node name="CanvasLayer" parent="." unique_id=1189217763 instance=ExtResource("2_bo1nx")]
-
-[connection signal="addToMainScene" from="CanvasLayer" to="." method="_on_canvas_layer_add_to_main_scene"]
+[node name="Label" type="Label" parent="." unique_id=588807997]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.0
+offset_top = -1500.0
+offset_right = 113.0
+offset_bottom = -1403.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_bo1nx")
+theme_override_font_sizes/font_size = 67
+text = "Level 2"

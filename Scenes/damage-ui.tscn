@@ -1,9 +1,18 @@
 [gd_scene format=3 uid="uid://ro0r0j35augo"]
 
-[ext_resource type="Script" uid="uid://ba2yn3xjsamik" path="res://Scripts/damage_ui.gd" id="1_3fxi7"]
+[sub_resource type="GDScript" id="GDScript_0piwu"]
+script/source = "extends CanvasLayer
+
+signal addToMainScene
+
+func show_damage(value, position):
+	print(\"damage popup \", value, \" \", position)
+	addToMainScene.emit()
+	
+"
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1189217763]
-script = ExtResource("1_3fxi7")
+script = SubResource("GDScript_0piwu")
 
 [node name="Label" type="Label" parent="." unique_id=998397023]
 offset_right = 120.0
