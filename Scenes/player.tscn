@@ -2,18 +2,22 @@
 
 [ext_resource type="Script" uid="uid://clr4qo5juqok0" path="res://Scripts/character_body_2d.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dc10lwmf4013d" path="res://Assets/SpaceRage/SpaceRage/Player/player_b_l1.png" id="2_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://ck4vskmy4383n" path="res://Assets/drawing.svg" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://bfnmc5brmswlu" path="res://Assets/fireball.svg" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://ck4vskmy4383n" path="res://Assets/drawing.svg" id="4_vgqql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1hc3"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g1hc3"]
-spread = 30.0
-flatness = 0.2
+emission_shape = 1
+emission_sphere_radius = 12.48
+spread = 24.737
 initial_velocity_min = 179.03
 initial_velocity_max = 454.84
-gravity = Vector3(0, 200, 0)
+use_scale_3d = true
+scale_3d_min = Vector3(0.18, 0.18, 0.18)
+scale_3d_max = Vector3(0.74, 0.74, 0.74)
 scale_min = 0.099999994
-scale_max = 0.5
+scale_max = 0.75
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=822506584]
 rotation = 3.1415927
@@ -29,28 +33,58 @@ texture = ExtResource("2_6t5aa")
 [node name="Node" type="Node2D" parent="." unique_id=1522143223]
 position = Vector2(-2.1855694e-06, -25)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Node" unique_id=865905018]
-position = Vector2(1.0000005, 6)
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="Node" unique_id=1129484798]
+position = Vector2(0.99999887, -2)
 rotation = -1.5707964
-amount = 40
+amount = 50
+texture = ExtResource("4_vgqql")
+lifetime = 0.3
+preprocess = 0.76
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_g1hc3")
+
+[node name="GPUParticles2D5" type="GPUParticles2D" parent="Node" unique_id=1623139225]
+position = Vector2(15, 2.999998)
+rotation = -1.5707964
+amount = 50
+texture = ExtResource("4_vgqql")
+lifetime = 0.3
+preprocess = 0.76
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_g1hc3")
+
+[node name="GPUParticles2D6" type="GPUParticles2D" parent="Node" unique_id=444943342]
+position = Vector2(-17, 3.000002)
+rotation = -1.5707964
+amount = 50
+texture = ExtResource("4_vgqql")
+lifetime = 0.3
+preprocess = 0.76
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_g1hc3")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Node" unique_id=865905018]
+position = Vector2(1.0000002, 3)
+rotation = -1.5707964
+amount = 25
 texture = ExtResource("3_6t5aa")
 lifetime = 0.3
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_g1hc3")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="Node" unique_id=1914383366]
-position = Vector2(15.000001, 10.999999)
+position = Vector2(15.000001, 7.999999)
 rotation = -1.5707964
-amount = 30
+amount = 25
 texture = ExtResource("3_6t5aa")
 lifetime = 0.3
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_g1hc3")
 
 [node name="GPUParticles2D3" type="GPUParticles2D" parent="Node" unique_id=455309467]
-position = Vector2(-17, 11.000002)
+position = Vector2(-17, 8.000002)
 rotation = -1.5707964
-amount = 30
+amount = 25
 texture = ExtResource("3_6t5aa")
 lifetime = 0.3
 fixed_fps = 60

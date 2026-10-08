@@ -45,8 +45,8 @@ func pause_gameplay():
 			child.process_mode = Node.PROCESS_MODE_INHERIT
 	else:
 		for child in self.get_children():
-			
-			child.process_mode = Node.PROCESS_MODE_DISABLED
+			if not child.is_in_group("disabledFromPause"):
+				child.process_mode = Node.PROCESS_MODE_DISABLED
 func _ready() -> void:
 	generate_level(GlobalVariables.playerInfo["level"])
 
