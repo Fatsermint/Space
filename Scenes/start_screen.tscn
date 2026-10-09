@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://cq5khu7db60cf"]
+
+[ext_resource type="Script" uid="uid://jbevkxshknuq" path="res://Scenes/start_screen.gd" id="1_i8r30"]
+[ext_resource type="FontFile" uid="uid://dkru7m5dcdtds" path="res://Assets/Quantico-Bold.ttf" id="2_ainjc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8r30"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.38, 0.38, 0.38, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0, 0.45490196)
+shadow_size = 2
+shadow_offset = Vector2(-4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ainjc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60ddj"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e717"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1202398794]
+script = ExtResource("1_i8r30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1089065757]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -165.25
+offset_right = 161.0
+offset_bottom = 165.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 124
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=390176936]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=986204450]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Start Game"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=2028201153]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1305312739]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Tutorial"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=937875071]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=449162230]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Settings"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=918650997]
+visible = false
+offset_left = 75.0
+offset_top = 200.0
+offset_right = 525.0
+offset_bottom = 800.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+color = Color(0.79, 0.79, 0.79, 0.61960787)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect" unique_id=648926474]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_right = 225.0
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=2073913966]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer2" unique_id=1697995681]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=102529905]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer" unique_id=1332182103]
+layout_mode = 2
+text = "Show FPS"
+
+[node name="CheckButton" type="CheckButton" parent="ColorRect/VBoxContainer2/HBoxContainer" unique_id=828885024]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_60ddj")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=1250794561]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer3" unique_id=1733789729]
+layout_mode = 2
+text = "Limited FPS"
+
+[node name="CheckButton" type="CheckButton" parent="ColorRect/VBoxContainer2/HBoxContainer3" unique_id=1131305431]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_60ddj")
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=1182475283]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -42.0
+offset_right = 110.0
+offset_bottom = 152.0
+grow_horizontal = 0
+scale = Vector2(0.275, 0.275)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ainjc")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
+text = "x"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_start_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_settings_escape_pressed"]

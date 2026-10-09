@@ -13,7 +13,6 @@ func _physics_process(delta: float) -> void:
 		timesFired += 1
 		var bul = bullet.duplicate()
 		bul.name = "bullet"
-		print(self.get_parent().get_children(), "  bob")
 		self.get_parent().find_child("bullets").add_child(bul)
 		
 		if timesFired % 2 !=0:

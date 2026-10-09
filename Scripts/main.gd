@@ -48,7 +48,7 @@ func pause_gameplay():
 			if not child.is_in_group("disabledFromPause"):
 				child.process_mode = Node.PROCESS_MODE_DISABLED
 func _ready() -> void:
-	generate_level(GlobalVariables.playerInfo["level"])
+	pass
 
 func _process(delta: float) -> void:
 	if get_tree().get_nodes_in_group("enemy").is_empty() and finishing == false:
@@ -81,13 +81,18 @@ func _finish_level_text():
 	var tween2 = create_tween()
 	
 	tween2.tween_property(label, "position", position2, 0.2)
-	tween2.tween_callback(_finis_level)
+	await get_tree().create_timer(0.8, false).timeout
+	_finis_level(GlobalVariables.playerInfo["level"])
+	
+	print(GlobalVariables.playerInfo["level"])
 
 
-func _finis_level():
+func _finis_level(level):
 	for child in get_children():
 		if not GlobalVariables.whitelistedObjectsNames.has(child.name):
 			child.queue_free()
-	GlobalVariables.playerInfo["level"] += 1
+	GlobalVariables.playerInfo["level"] = level +1
+	print(GlobalVariables.playerInfo["level"])
+	
 	generate_level(GlobalVariables.playerInfo["level"])
 	finishing = false
