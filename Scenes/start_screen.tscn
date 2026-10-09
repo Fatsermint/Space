@@ -139,6 +139,13 @@ text = "Limited FPS"
 layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxFlat_60ddj")
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=718631659]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer4" unique_id=2024524123]
+layout_mode = 2
+text = "These dont work yet"
+
 [node name="Button" type="Button" parent="ColorRect" unique_id=1182475283]
 layout_mode = 1
 anchors_preset = 1
@@ -172,7 +179,95 @@ theme_override_fonts/font = ExtResource("2_ainjc")
 theme_override_font_sizes/font_size = 50
 text = "Failed at level x"
 
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1162844144]
+offset_left = 75.0
+offset_top = 200.0
+offset_right = 525.0
+offset_bottom = 800.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+color = Color(0.79, 0.79, 0.79, 0.61960787)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect2" unique_id=1084795095]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_right = 225.0
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=1001470592]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer2" unique_id=1248978461]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Tutorial"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=938771608]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer3" unique_id=1553146706]
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=801141548]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer4" unique_id=108145468]
+layout_mode = 2
+text = "Press A/D to move"
+horizontal_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=1870908592]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer5" unique_id=8400487]
+layout_mode = 2
+text = "F to fire"
+horizontal_alignment = 1
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=1486295559]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer6" unique_id=1329873199]
+layout_mode = 2
+text = "ESC to open settings"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect2" unique_id=1170956572]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -42.0
+offset_right = 110.0
+offset_bottom = 152.0
+grow_horizontal = 0
+scale = Vector2(0.275, 0.275)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ainjc")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
+text = "x"
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_settings_escape_pressed"]
+[connection signal="pressed" from="ColorRect2/Button" to="." method="_on_button_tutorial_escape_pressed"]

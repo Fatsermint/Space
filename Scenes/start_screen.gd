@@ -10,7 +10,7 @@ func _on_button_start_game_pressed() -> void:
 
 
 func _on_button_tutorial_pressed() -> void:
-	pass # Replace with function body.
+	$ColorRect2.visible = true
 
 
 func _on_button_settings_pressed() -> void:
@@ -31,3 +31,7 @@ func _process(delta: float) -> void:
 
 func set_stats_back():
 	GlobalVariables.playerInfo["level"] = 0
+
+
+func _on_button_tutorial_escape_pressed() -> void:
+	$ColorRect2.visible = false 

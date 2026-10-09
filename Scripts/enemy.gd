@@ -5,7 +5,7 @@ var hp = 100
 
 
 func _process(delta: float) -> void:
-	self.position.y += 2 *delta *60
+	self.position.y += 1 *delta *60
 	if self.position.y > -10:
 		succes(1)
 func _on_area_2d_area_entered(area: Area2D) -> void:
