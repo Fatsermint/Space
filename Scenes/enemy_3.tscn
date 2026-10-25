@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bebu3mith3dfh"]
+
+[ext_resource type="Texture2D" uid="uid://b0erporhpqn7" path="res://Assets/SpaceRage/SpaceRage/Enemies/mine_1_01.png" id="1_jb6j8"]
+[ext_resource type="Script" uid="uid://bec1qmbufp6gk" path="res://Scripts/enemy.gd" id="2_nypmv"]
+[ext_resource type="Texture2D" uid="uid://ci2fccqyht5y5" path="res://Assets/SpaceRage/SpaceRage/Explosions/explosion_1_01.png" id="3_3jtdi"]
+[ext_resource type="Texture2D" uid="uid://cq8w7itgi3feu" path="res://Assets/SpaceRage/SpaceRage/Explosions/explosion_1_02.png" id="4_i7bq3"]
+[ext_resource type="Texture2D" uid="uid://ljdkhu5fjm1f" path="res://Assets/SpaceRage/SpaceRage/Explosions/explosion_1_03.png" id="5_0bu25"]
+[ext_resource type="Texture2D" uid="uid://baucrx7blpqsg" path="res://Assets/SpaceRage/SpaceRage/Explosions/explosion_1_04.png" id="6_jdsjd"]
+[ext_resource type="Texture2D" uid="uid://byujmx7sj4ilm" path="res://Assets/SpaceRage/SpaceRage/Explosions/explosion_1_05.png" id="7_iv6vr"]
+[ext_resource type="Texture2D" uid="uid://idaj5a68jcx7" path="res://Assets/SpaceRage/SpaceRage/Explosions/explosion_1_06.png" id="8_4twbx"]
+[ext_resource type="Texture2D" uid="uid://cdnuy586d4fby" path="res://Assets/SpaceRage/SpaceRage/Explosions/explosion_1_07.png" id="9_kyyo5"]
+[ext_resource type="Theme" uid="uid://buwkxhagrjh4b" path="res://Assets/progressbar.tres" id="10_s4211"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1hc3"]
+size = Vector2(55.333336, 33.333336)
+
+[sub_resource type="Animation" id="Animation_hgeoe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_3jtdi")]
+}
+
+[sub_resource type="Animation" id="Animation_tk7xo"]
+resource_name = "explosion"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_3jtdi"), ExtResource("4_i7bq3"), ExtResource("5_0bu25"), ExtResource("6_jdsjd"), ExtResource("7_iv6vr"), ExtResource("8_4twbx"), ExtResource("9_kyyo5")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_scl1n"]
+_data = {
+&"RESET": SubResource("Animation_hgeoe"),
+&"explosion": SubResource("Animation_tk7xo")
+}
+
+[node name="enemy3" type="Sprite2D" unique_id=61236115 groups=["enemy"]]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_jb6j8")
+script = ExtResource("2_nypmv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=457319426]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2039315555]
+scale = Vector2(0.6822292, 0.96370095)
+shape = SubResource("RectangleShape2D_g1hc3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=542676850]
+libraries/ = SubResource("AnimationLibrary_scl1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1538733223]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_3jtdi")
+
+[node name="health" type="ProgressBar" parent="." unique_id=2103481587]
+offset_left = -40.0
+offset_top = -37.333336
+offset_right = 40.0
+offset_bottom = -10.333336
+scale = Vector2(1, 0.46666664)
+theme = ExtResource("10_s4211")
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 0)
+value = 100.0
+
+[node name="Label" type="Label" parent="." unique_id=1591326176]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -790.0
+offset_right = 28.0
+offset_bottom = -381.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 300
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -23,7 +23,8 @@ var enemyInfo = {
 			"normal":0
 		},
 		"speed":1,
-		"value": 10
+		"value": 10,
+		"child":null
 	},
 	"enemy2":{
 		"path": "res://Scenes/enemy_2.tscn",
@@ -32,7 +33,22 @@ var enemyInfo = {
 			"normal":5
 		},
 		"speed": 0.5,
-		"value": 40
+		"value": 40,
+		"child":null
+	},
+	"enemy3":{
+		"path": "res://Scenes/enemy_3.tscn",
+		"shield":{
+			"%": 0.75,
+			"normal":0
+		},
+		"speed": 1.5,
+		"value": 75,
+		"child":{
+			"positions":[[75, 0],[-75, 0]],
+			"type": "enemy1",
+			"hp": 100
+		}
 	}
 }
 
@@ -42,6 +58,9 @@ var levels = {
 		"player":[[0, -25], true],
 		"enemy1":[
 			[[0, -1000], 100],
+		],
+		"enemy3":[
+			[[0, -900], 100]
 		],
 		
 		"settings":true

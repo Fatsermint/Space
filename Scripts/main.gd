@@ -21,10 +21,8 @@ func generate_level(levelNum):
 
 		for i in level:
 			for enemytype in GlobalVariables.enemyInfo:
-			
 				if i == enemytype:
 					var num = 0
-					
 					for enemychild in GlobalVariables.levels[levelNum][enemytype].size():
 						var eneminfo = GlobalVariables.enemyInfo[enemytype]
 						var path = eneminfo.path
@@ -32,11 +30,14 @@ func generate_level(levelNum):
 						var enem = packedScene.instantiate()
 						enem.editor_description = str(enemytype)
 						add_child(enem)
+						if not eneminfo.child == null:
+							enem.add_to_group("newChild")
 						enem.add_to_group("enemy")
 						enem.name = str(1)
 						enem.global_position = Vector2(level[enemytype][num][0][0], level[enemytype][num][0][1])
 						enem.find_child("health").value = level[enemytype][num][1]
 						num = num +1
+						
 	
 	if level.has("settings") and level["settings"] == true:
 		settings = settingsScene.instantiate()
@@ -44,7 +45,22 @@ func generate_level(levelNum):
 		
 	
 	
-	
+func newEnemy(position, type):
+	for i in GlobalVariables.enemyInfo[type].child:
+		
+		var enemyInfo = GlobalVariables.enemyInfo[type]
+		var path = enemyInfo.path
+		var packedScene:PackedScene = load(path)
+		var enem = packedScene.instantiate()
+		enem.editor_description = str(type)
+		add_child(enem)
+		if not enemyInfo.child == null:
+			enem.add_to_group("newChild")
+		enem.add_to_group("enemy")
+		enem.name = str(1)
+		enem.global_position = Vector2(enemyInfo.child.postions[i][0], enemyInfo.child.postions[i][1])
+		enem.find_child("health").value = enemyInfo.child.hp
+		
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("escape"):
 		

@@ -19,11 +19,15 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			
 		if not $AnimationPlayer.current_animation == "explosion":
 			showDamage((GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[type].shield["%"])-GlobalVariables.enemyInfo[type].shield.normal, [area.global_position.x, area.global_position.y], [self.global_position.x, self.global_position.y])
-
 		
 		
 		
 		if healthBar.value == 0:
+			if self.is_in_group("newChild"):
+				print("new child!!!!!")
+				
+				
+			
 			GlobalVariables.playerInfo.stats.enemydestroyed += 1
 
 			$AnimationPlayer.play("explosion")
