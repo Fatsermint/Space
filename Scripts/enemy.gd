@@ -1,19 +1,19 @@
 extends Sprite2D
 @onready var healthBar: ProgressBar = $health
 
-var hp = 100
-
 
 func _process(delta: float) -> void:
-	self.position.y += 1 *delta *60
+	if not $AnimationPlayer.current_animation == "explosion":
+		self.position.y += 1 *delta *60
 	if self.position.y > -10:
 		succes(1)
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	showDamage(GlobalVariables.bulletDamages[0], [area.global_position.x, area.global_position.y], [self.global_position.x, self.global_position.y])
+	var hp = GlobalVariables.bulletDamages[0]
+	if not $AnimationPlayer.current_animation == "explosion":
+		showDamage(GlobalVariables.bulletDamages[0], [area.global_position.x, area.global_position.y], [self.global_position.x, self.global_position.y])
 	
 	if area.get_parent().is_in_group("bullets"):
 		area.get_parent().queue_free()
-		print("hit")
 		if (healthBar.value - GlobalVariables.bulletDamages[0]) < 0:
 			healthBar.value = 0
 		else:
@@ -23,7 +23,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		
 		
 		if healthBar.value == 0:
-			print("a")
 			$AnimationPlayer.play("explosion")
 			
 	

@@ -7,12 +7,25 @@ var playerInfo = {
 	"level": 0
 }
 
+var enemyInfo = {
+	"enemy1": {
+		"path": "res://Scenes/basic.tscn",
+		"shield": 0,
+	},
+	"enemy2":{
+		"path": "res://Scenes/enemy_2.tscn",
+		"shield":{
+			"%":50,
+			"normal":5
+		}
+	}
+}
+
+
 var levels = {
 	1:{
 		"player":[[0, -25], true],
-		"basic":[
-			[[100, -1000], 60]
-			],
+		"enemy2":[[20, -1000], 100],
 		"settings":true
 	},
 	2:{

@@ -1,13 +1,13 @@
 extends Node2D
-var basicScene: PackedScene = preload("res://Scenes/basic.tscn")
+var enemy1: PackedScene = preload("res://Scenes/basic.tscn")
 var playerScene: PackedScene = preload("res://Scenes/player.tscn")
+var enemy2:PackedScene = preload("res://Scenes/enemy_2.tscn")
 var settingsScene: PackedScene = preload("res://Scenes/settings.tscn")
 @onready var camera: Camera2D = $Camera
 @onready var bullets: Node = $bullets
 
 var settings = settingsScene.instantiate()
 var finishing = false
-
 func generate_level(levelNum):
 	var level = GlobalVariables.levels[levelNum]
 	var root = get_tree().get_root()
@@ -18,14 +18,20 @@ func generate_level(levelNum):
 		add_child(player)
 		player.global_position = Vector2(level["player"][0][0], level["player"][0][1])
 		
-	if level.has("basic"):
-		for i in level["basic"]:
-			var basic = basicScene.instantiate()
-			add_child(basic)
-			basic.add_to_group("enemy")
-			basic.global_position = Vector2(i[0][0], i[0][1])
-			basic.find_child("health").value = i[1]
-		
+
+		for i in level:
+			for enemytype in GlobalVariables.enemyInfo:
+			
+				if i == enemytype:
+					var eneminfo = GlobalVariables.enemyInfo[enemytype]
+					var path = eneminfo.path
+					var packedScene:PackedScene = load(path)
+					var enem = packedScene.instantiate()
+					add_child(enem)
+					enem.add_to_group("enemy")
+					enem.global_position = Vector2(level[enemytype][0][0], level[enemytype][0][1])
+					enem.find_child("health").value = level[enemytype][1]
+	
 	if level.has("settings") and level["settings"] == true:
 		settings = settingsScene.instantiate()
 		add_child(settings)
