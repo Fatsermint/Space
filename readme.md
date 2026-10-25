@@ -8,4 +8,4 @@ esc		open settings/pause game
 ## Ai 
 I didn't use any ai to make this project
 ## I want to try out this project
-Go to -super cool website here-. 
+Go to https://fatsermint.github.io/Space/ 
