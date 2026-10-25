@@ -51,7 +51,7 @@ _data = {
 &"explosion": SubResource("Animation_tk7xo")
 }
 
-[node name="enemy" type="Sprite2D" unique_id=61236115 groups=["enemy"]]
+[node name="enemy1" type="Sprite2D" unique_id=61236115 groups=["enemy"]]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_ucrkb")
 script = ExtResource("2_cgof8")

@@ -4,21 +4,24 @@ extends Sprite2D
 
 func _process(delta: float) -> void:
 	if not $AnimationPlayer.current_animation == "explosion":
-		self.position.y += 1 *delta *60
+		self.position.y += GlobalVariables.enemyInfo[self.editor_description].speed *delta *60
 	if self.position.y > -10:
 		succes(1)
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	var hp = GlobalVariables.bulletDamages[0]
-	if not $AnimationPlayer.current_animation == "explosion":
-		showDamage((GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[self.name].shield["%"] * 0.01)-GlobalVariables.enemyInfo[self.name].shield.normal, [area.global_position.x, area.global_position.y], [self.global_position.x, self.global_position.y])
+
 	
 	if area.get_parent().is_in_group("bullets"):
+		var type = self.editor_description
+		var bulletType:String = area.get_parent().name
+		print("Bullet type ", bulletType)
 		area.get_parent().queue_free()
-		print((GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[self.name].shield["%"] * 0.01)-GlobalVariables.enemyInfo[self.name].shield.normal)
-		if (healthBar.value - (GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[self.name].shield["%"] * 0.01)-GlobalVariables.enemyInfo[self.name].shield.normal) < 0:
+		if (healthBar.value - (GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[type].shield["%"])-GlobalVariables.enemyInfo[type].shield.normal) < 0:
 			healthBar.value = 0
 		else:
-			healthBar.value -= (GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[self.name].shield["%"] * 0.01)-GlobalVariables.enemyInfo[self.name].shield.normal
+			healthBar.value -= (GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[type].shield["%"])-GlobalVariables.enemyInfo[type].shield.normal
+			
+		if not $AnimationPlayer.current_animation == "explosion":
+			showDamage((GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[type].shield["%"])-GlobalVariables.enemyInfo[type].shield.normal, [area.global_position.x, area.global_position.y], [self.global_position.x, self.global_position.y])
 
 		
 		

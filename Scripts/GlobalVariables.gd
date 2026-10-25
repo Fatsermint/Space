@@ -4,23 +4,26 @@ extends Node
 var bulletDamages = [20]
 var whitelistedObjectsNames = ["bullets", "Camera", "Label"]
 var playerInfo = {
-	"level": 0
+	"level": 0,
+	"bullet": "level1"
 }
 
 var enemyInfo = {
 	"enemy1": {
 		"path": "res://Scenes/basic.tscn",
 		"shield": {
-			"%":0,
+			"%":1,
 			"normal":0
-		}
+		},
+		"speed":1
 	},
 	"enemy2":{
 		"path": "res://Scenes/enemy_2.tscn",
 		"shield":{
-			"%":50,
+			"%":0.5,
 			"normal":5
-		}
+		},
+		"speed": 0.5
 	}
 }
 
@@ -28,12 +31,17 @@ var enemyInfo = {
 var levels = {
 	1:{
 		"player":[[0, -25], true],
-		"enemy2":[[20, -1000], 100],
+		"enemy2":[
+			[[20, -1000], 100],
+			[[-20, -1000], 100]
+		
+		],
+		
 		"settings":true
 	},
 	2:{
 		"player":[[0, -25], true],
-		"basic":[
+		"enemy1":[
 			[[100, -1100], 100]
 			,
 			[[-100, -1100], 100]
@@ -43,7 +51,7 @@ var levels = {
 	},
 	3:{
 		"player":[[0, -25], true],
-		"basic":[
+		"enemy1":[
 			[[0, -1100], 100]
 			,
 			[[0, -1400], 100]
@@ -55,7 +63,7 @@ var levels = {
 	},
 	4:{
 		"player":[[0, -25], true],
-		"basic":[
+		"enemy1":[
 			[[0, -1000], 100]
 			,
 			[[100, -1300], 100]
@@ -69,7 +77,7 @@ var levels = {
 	},
 	5:{
 		"player":[[0, -25], true],
-		"basic":[
+		"enemy1":[
 			[[75, -1000], 100]
 			,
 			[[-75, -1000], 100]
@@ -85,7 +93,7 @@ var levels = {
 	},
 	6:{
 		"player":[[0, -25], true],
-		"basic":[
+		"enemy1":[
 			[[75, -1000], 100]
 			,
 			[[-75, -1000], 100]
@@ -103,7 +111,7 @@ var levels = {
 	},
 	7:{
 		"player":[[0, -25], true],
-		"basic":[
+		"enemy1":[
 			[[75, -1000], 100]
 			,
 			[[-75, -1000], 100]
@@ -125,7 +133,7 @@ var levels = {
 	},
 	8:{
 		"player":[[0, -25], true],
-		"basic":[
+		"enemy1":[
 			[[75, -1000], 100]
 			,
 			[[-75, -1000], 100]
@@ -151,7 +159,7 @@ var levels = {
 	},
 	9:{
 		"player":[[0, -25], true],
-		"basic":[
+		"enemy1":[
 			[[75, -1000], 100]
 			,
 			[[-75, -1000], 100]
@@ -181,7 +189,7 @@ var levels = {
 	},
 	10:{
 		"player":[[0, -25], true],
-		"basic":[
+		"enemy1":[
 			[[75, -1000], 100]
 			,
 			[[-75, -1000], 100]

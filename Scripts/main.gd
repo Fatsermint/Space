@@ -23,14 +23,22 @@ func generate_level(levelNum):
 			for enemytype in GlobalVariables.enemyInfo:
 			
 				if i == enemytype:
-					var eneminfo = GlobalVariables.enemyInfo[enemytype]
-					var path = eneminfo.path
-					var packedScene:PackedScene = load(path)
-					var enem = packedScene.instantiate()
-					add_child(enem)
-					enem.add_to_group("enemy")
-					enem.global_position = Vector2(level[enemytype][0][0], level[enemytype][0][1])
-					enem.find_child("health").value = level[enemytype][1]
+					var num = 0
+					
+					for enemychild in GlobalVariables.levels[levelNum][enemytype].size():
+						print(GlobalVariables.levels[levelNum][enemytype].size(), "size")
+						var eneminfo = GlobalVariables.enemyInfo[enemytype]
+						var path = eneminfo.path
+						var packedScene:PackedScene = load(path)
+						var enem = packedScene.instantiate()
+						enem.editor_description = str(enemytype)
+						add_child(enem)
+						enem.add_to_group("enemy")
+						enem.name = str(1)
+						enem.global_position = Vector2(level[enemytype][num][0][0], level[enemytype][num][0][1])
+						enem.find_child("health").value = level[enemytype][num][1]
+						num = num +1
+						print(num, "num")
 	
 	if level.has("settings") and level["settings"] == true:
 		settings = settingsScene.instantiate()

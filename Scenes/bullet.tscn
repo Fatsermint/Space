@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bir0kqecxh3dn"]
 
-[ext_resource type="Texture2D" uid="uid://dma87tyjcp1we" path="res://Assets/SpaceRage/SpaceRage/FX/vulcan_1.png" id="1_xjght"]
+[ext_resource type="Texture2D" uid="uid://bl7me2qhpu5gb" path="res://Assets/SpaceRage/SpaceRage/FX/vulcan_1.png" id="1_xjght"]
 [ext_resource type="Script" uid="uid://cq7klo7ivdlaa" path="res://Scripts/bullet.gd" id="2_oduel"]
-[ext_resource type="Texture2D" uid="uid://ck4vskmy4383n" path="res://Assets/drawing.svg" id="3_ycag2"]
+[ext_resource type="Texture2D" uid="uid://3ttdlq4hfrsj" path="res://Assets/drawing.svg" id="3_ycag2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1hc3"]
 size = Vector2(6, 20)
@@ -16,7 +16,7 @@ gravity = Vector3(0, 200, 0)
 scale_min = 0.099999994
 scale_max = 0.75
 
-[node name="Sprite2D" type="Sprite2D" unique_id=1880055835 groups=["bullets"]]
+[node name="1" type="Sprite2D" unique_id=1880055835 groups=["bullets"]]
 texture = ExtResource("1_xjght")
 script = ExtResource("2_oduel")
 

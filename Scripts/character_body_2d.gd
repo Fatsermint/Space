@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire"):
 		timesFired += 1
 		var bul = bullet.duplicate()
-		bul.name = "bullet"
+		bul.name = GlobalVariables.playerInfo.bullet
 		self.get_parent().find_child("bullets").add_child(bul)
 		
 		if timesFired % 2 !=0:
