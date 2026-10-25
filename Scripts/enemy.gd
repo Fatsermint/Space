@@ -10,14 +10,15 @@ func _process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var hp = GlobalVariables.bulletDamages[0]
 	if not $AnimationPlayer.current_animation == "explosion":
-		showDamage(GlobalVariables.bulletDamages[0], [area.global_position.x, area.global_position.y], [self.global_position.x, self.global_position.y])
+		showDamage((GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[self.name].shield["%"] * 0.01)-GlobalVariables.enemyInfo[self.name].shield.normal, [area.global_position.x, area.global_position.y], [self.global_position.x, self.global_position.y])
 	
 	if area.get_parent().is_in_group("bullets"):
 		area.get_parent().queue_free()
-		if (healthBar.value - GlobalVariables.bulletDamages[0]) < 0:
+		print((GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[self.name].shield["%"] * 0.01)-GlobalVariables.enemyInfo[self.name].shield.normal)
+		if (healthBar.value - (GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[self.name].shield["%"] * 0.01)-GlobalVariables.enemyInfo[self.name].shield.normal) < 0:
 			healthBar.value = 0
 		else:
-			healthBar.value -= GlobalVariables.bulletDamages[0]
+			healthBar.value -= (GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[self.name].shield["%"] * 0.01)-GlobalVariables.enemyInfo[self.name].shield.normal
 
 		
 		

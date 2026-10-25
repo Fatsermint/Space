@@ -10,7 +10,10 @@ var playerInfo = {
 var enemyInfo = {
 	"enemy1": {
 		"path": "res://Scenes/basic.tscn",
-		"shield": 0,
+		"shield": {
+			"%":0,
+			"normal":0
+		}
 	},
 	"enemy2":{
 		"path": "res://Scenes/enemy_2.tscn",
