@@ -10,6 +10,7 @@ func _physics_process(delta: float) -> void:
 	velocity = input_direction* speed
 	
 	if Input.is_action_just_pressed("fire"):
+		GlobalVariables.playerInfo.stats.fired += 1
 		timesFired += 1
 		var bul = bullet.duplicate()
 		bul.name = GlobalVariables.playerInfo.bullet

@@ -1,7 +1,18 @@
 [gd_scene format=3 uid="uid://bgb80gyhttkis"]
 
 [ext_resource type="Script" uid="uid://dtd1dxgtoj7m4" path="res://Scripts/main.gd" id="1_jjgbg"]
-[ext_resource type="FontFile" uid="uid://dkru7m5dcdtds" path="res://Assets/Quantico-Bold.ttf" id="2_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://3ttdlq4hfrsj" path="res://Assets/drawing.svg" id="2_bo1nx"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ivno"]
+emission_shape_offset = Vector3(100, 0, 0)
+emission_shape_scale = Vector3(5, 5, 5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -402.6
+angle_max = 263.2
+spread = 180.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
 
 [node name="main" type="Node2D" unique_id=1427620502]
 script = ExtResource("1_jjgbg")
@@ -20,6 +31,14 @@ offset_top = -1500.0
 offset_right = 113.0
 offset_bottom = -1403.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_bo1nx")
 theme_override_font_sizes/font_size = 67
 text = "Level 2"
+
+[node name="asteroid" type="GPUParticles2D" parent="." unique_id=520892611]
+position = Vector2(329, -1026)
+amount = 30
+texture = ExtResource("2_bo1nx")
+lifetime = 30.0
+speed_scale = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5ivno")

@@ -1,19 +1,16 @@
 extends Sprite2D
 @onready var healthBar: ProgressBar = $health
 
-
+var type
 func _process(delta: float) -> void:
 	if not $AnimationPlayer.current_animation == "explosion":
 		self.position.y += GlobalVariables.enemyInfo[self.editor_description].speed *delta *60
 	if self.position.y > -10:
-		succes(1)
+		succes()
 func _on_area_2d_area_entered(area: Area2D) -> void:
-
-	
 	if area.get_parent().is_in_group("bullets"):
-		var type = self.editor_description
+		type = self.editor_description
 		var bulletType:String = area.get_parent().name
-		print("Bullet type ", bulletType)
 		area.get_parent().queue_free()
 		if (healthBar.value - (GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[type].shield["%"])-GlobalVariables.enemyInfo[type].shield.normal) < 0:
 			healthBar.value = 0
@@ -27,19 +24,19 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		
 		
 		if healthBar.value == 0:
+			GlobalVariables.playerInfo.stats.enemydestroyed += 1
+
 			$AnimationPlayer.play("explosion")
 			
 	
 	
 	
-func succes(value):
-	get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
-
+func succes():
+	GlobalVariables.playerInfo.failed = true
 func showDamage(value, location, location2):
 	var label = $Label.duplicate()
 	add_child(label)
 	label.text = str(value)
-	print(location)
 	label.position = Vector2(location[0] - location2[0] +88, location[1] - location2[1] - 50)
 	var tween = create_tween()
 	tween.tween_property(label, "position:y", label.position.y -60, 1)
@@ -48,4 +45,6 @@ func showDamage(value, location, location2):
 	
 	
 func _on_animation_player_animation_finished(explosion) -> void:
+	GlobalVariables.playerInfo.coins += GlobalVariables.enemyInfo[type].value
+	print(GlobalVariables.playerInfo.coins," Coins!")
 	self.queue_free()

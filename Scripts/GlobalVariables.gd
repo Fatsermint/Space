@@ -2,10 +2,17 @@ extends Node
 
 
 var bulletDamages = [20]
-var whitelistedObjectsNames = ["bullets", "Camera", "Label"]	
+var whitelistedObjectsNames = ["bullets", "Camera", "Label", "asteroid", "Settings"]	
 var playerInfo = {
 	"level": 0,
-	"bullet": "level1"
+	"bullet": "level1",
+	"failed": false,
+	"coins": 0,
+	"hp": 200,
+	"stats":{
+		"fired":0,
+		"enemydestroyed":0
+	}
 }
 
 var enemyInfo = {
@@ -15,7 +22,8 @@ var enemyInfo = {
 			"%":1,
 			"normal":0
 		},
-		"speed":1
+		"speed":1,
+		"value": 10
 	},
 	"enemy2":{
 		"path": "res://Scenes/enemy_2.tscn",
@@ -23,7 +31,8 @@ var enemyInfo = {
 			"%":0.5,
 			"normal":5
 		},
-		"speed": 0.5
+		"speed": 0.5,
+		"value": 40
 	}
 }
 

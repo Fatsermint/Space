@@ -26,7 +26,6 @@ func generate_level(levelNum):
 					var num = 0
 					
 					for enemychild in GlobalVariables.levels[levelNum][enemytype].size():
-						print(GlobalVariables.levels[levelNum][enemytype].size(), "size")
 						var eneminfo = GlobalVariables.enemyInfo[enemytype]
 						var path = eneminfo.path
 						var packedScene:PackedScene = load(path)
@@ -38,7 +37,6 @@ func generate_level(levelNum):
 						enem.global_position = Vector2(level[enemytype][num][0][0], level[enemytype][num][0][1])
 						enem.find_child("health").value = level[enemytype][num][1]
 						num = num +1
-						print(num, "num")
 	
 	if level.has("settings") and level["settings"] == true:
 		settings = settingsScene.instantiate()
@@ -65,6 +63,8 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
+	if GlobalVariables.playerInfo.failed == true:
+		get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
 	if get_tree().get_nodes_in_group("enemy").is_empty() and finishing == false:
 		
 		_finish_level_text()
@@ -98,7 +98,6 @@ func _finish_level_text():
 	await get_tree().create_timer(0.8, false).timeout
 	_finis_level(GlobalVariables.playerInfo["level"])
 	
-	print(GlobalVariables.playerInfo["level"])
 
 
 func _finis_level(level):
@@ -106,7 +105,6 @@ func _finis_level(level):
 		if not GlobalVariables.whitelistedObjectsNames.has(child.name):
 			child.queue_free()
 	GlobalVariables.playerInfo["level"] = level +1
-	print(GlobalVariables.playerInfo["level"])
 	
 	generate_level(GlobalVariables.playerInfo["level"])
 	finishing = false
