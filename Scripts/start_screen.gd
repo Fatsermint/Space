@@ -22,6 +22,7 @@ func _on_button_settings_escape_pressed() -> void:
 
 func _process(delta: float) -> void:
 	if GlobalVariables.playerInfo["level"]>=1:
+		print("failed at level", GlobalVariables.playerInfo["level"])
 		failedContainer.visible = true
 		$HBoxContainer/Label.text = "You failed at level "+str(GlobalVariables.playerInfo["level"])
 		await get_tree().create_timer(5).timeout

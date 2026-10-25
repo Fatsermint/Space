@@ -1,6 +1,6 @@
 extends Sprite2D
 @onready var healthBar: ProgressBar = $health
-
+signal summonNewEnemies
 var type
 func _process(delta: float) -> void:
 	if not $AnimationPlayer.current_animation == "explosion":
@@ -25,7 +25,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if healthBar.value == 0:
 			if self.is_in_group("newChild"):
 				print("new child!!!!!")
-				
+				get_parent().newEnemy([0,0], type)
 				
 			
 			GlobalVariables.playerInfo.stats.enemydestroyed += 1

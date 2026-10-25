@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgb80gyhttkis"]
 
 [ext_resource type="Script" uid="uid://dtd1dxgtoj7m4" path="res://Scripts/main.gd" id="1_jjgbg"]
-[ext_resource type="Texture2D" uid="uid://3ttdlq4hfrsj" path="res://Assets/drawing.svg" id="2_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://4e8aspu2khpb" path="res://Assets/asteroid_1.svg" id="2_bo1nx"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ivno"]
 emission_shape_offset = Vector3(100, 0, 0)
@@ -36,7 +36,7 @@ text = "Level 2"
 
 [node name="asteroid" type="GPUParticles2D" parent="." unique_id=520892611]
 position = Vector2(329, -1026)
-amount = 30
+amount = 20
 texture = ExtResource("2_bo1nx")
 lifetime = 30.0
 speed_scale = 2.0
