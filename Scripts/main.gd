@@ -45,24 +45,46 @@ func generate_level(levelNum):
 		
 	
 	
-func newEnemy(position, type):
-	pass
-	#for i in GlobalVariables.enemyInfo[type].child:
-	#	
-	#	var enemyInfo = GlobalVariables.enemyInfo[type]
-	#	var path = enemyInfo.path
-	#	var packedScene:PackedScene = load(path)
-	#	var enem = packedScene.instantiate()
-	#	enem.editor_description = str(type)
-	#	add_child(enem)
-	#	if not enemyInfo.child == null:
-	#		enem.add_to_group("newChild")
-	#	enem.add_to_group("enemy")
-	#	enem.name = str(1)
-	#	print(enemyInfo.child.["positions"][i])
-	#	enem.global_position = Vector2(enemyInfo.child.positions[i], enemyInfo.child.positions[i])
-	#	enem.find_child("health").value = enemyInfo.child.hp
+
+	
+func newEnemy(position, type, parentType):
+	var num = 0
+	for i in GlobalVariables.enemyInfo[parentType]["child"]["positions"]:
 		
+		var enemyInfo = GlobalVariables.enemyInfo[parentType]
+		var path = GlobalVariables.enemyInfo[type].path
+		var packedScene:PackedScene = load(path)
+		var enem = packedScene.instantiate()
+		enem.editor_description = str(type)
+		call_deferred("add_child", enem)
+		if not GlobalVariables.enemyInfo[type].child == null:
+			enem.add_to_group("newChild")
+		enem.add_to_group("enemy")
+		enem.name = str(1)
+		print(enemyInfo["child"]["positions"][num])
+		enem.global_position = Vector2(enemyInfo["child"]["positions"][num][0] + position[0], enemyInfo["child"]["positions"][num][1]+position[1])
+		enem.find_child("health").value = enemyInfo.child.hp
+		num += 1
+
+		
+		
+		
+		
+func check_end_level(selfEnemy):
+	var end = true
+	for child in get_children():
+		if child.is_in_group("enemy") or child.is_in_group("newChild") and child == selfEnemy:
+			print(selfEnemy)
+			print(child)
+			
+			if not child == selfEnemy:
+				print("idik")
+				end = false
+		else:
+			pass
+	if end == true:
+		_finish_level_text()
+	end = true
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("escape"):
 		
@@ -78,20 +100,15 @@ func pause_gameplay():
 			if not child.is_in_group("disabledFromPause"):
 				child.process_mode = Node.PROCESS_MODE_DISABLED
 func _ready() -> void:
-	pass
+	generate_level(GlobalVariables.playerInfo["level"]+1)
 
 func _process(delta: float) -> void:
 	if GlobalVariables.playerInfo.failed == true:
 		get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
-	if get_tree().get_nodes_in_group("enemy").is_empty() and finishing == false:
 		
-		_finish_level_text()
-		finishing = true
 	if self.find_child("bullets"):
-		
 		for b in self.find_child("bullets").get_children():
 			if b.position.y < -1000:
-				
 				b.queue_free()
 	else:
 		var newNode = Node.new()

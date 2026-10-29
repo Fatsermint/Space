@@ -6,7 +6,7 @@ var whitelistedObjectsNames = ["bullets", "Camera", "Label", "asteroid", "Settin
 var playerInfo = {
 	"level": 0,
 	"bullet": "level1",
-	"failed": false,
+	"failed": null,
 	"coins": 0,
 	"hp": 200,
 	"stats":{
@@ -47,7 +47,8 @@ var enemyInfo = {
 		"child":{
 			"positions":[[75, 0],[-75, 0]],
 			"type": "enemy1",
-			"hp": 100
+			"hp": 100,
+			"status": "alive"
 		}
 	}
 }
@@ -58,6 +59,9 @@ var levels = {
 		"player":[[0, -25], true],
 		"enemy1":[
 			[[0, -1000], 100],
+		],
+		"enemy3":[
+			[[0, -900], 100],
 		],
 		"settings":true
 	},

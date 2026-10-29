@@ -14,6 +14,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		area.get_parent().queue_free()
 		if (healthBar.value - (GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[type].shield["%"])-GlobalVariables.enemyInfo[type].shield.normal) < 0:
 			healthBar.value = 0
+			
 		else:
 			healthBar.value -= (GlobalVariables.bulletDamages[0] * GlobalVariables.enemyInfo[type].shield["%"])-GlobalVariables.enemyInfo[type].shield.normal
 			
@@ -23,9 +24,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		
 		
 		if healthBar.value == 0:
-			if self.is_in_group("newChild"):
-				print("new child!!!!!")
-				get_parent().newEnemy([0,0], type)
+			if self.is_in_group("newChild") and GlobalVariables.enemyInfo[type]["child"]["status"] == "alive":
+				get_parent().newEnemy([global_position.x,global_position.y], GlobalVariables.enemyInfo[type]["child"]["type"], type)
+				GlobalVariables.enemyInfo[type]["child"]["status"] = "dead"
 				
 			
 			GlobalVariables.playerInfo.stats.enemydestroyed += 1
@@ -49,6 +50,7 @@ func showDamage(value, location, location2):
 	
 	
 func _on_animation_player_animation_finished(explosion) -> void:
+	get_parent().check_end_level(self)
 	GlobalVariables.playerInfo.coins += GlobalVariables.enemyInfo[type].value
 	print(GlobalVariables.playerInfo.coins," Coins!")
 	self.queue_free()
