@@ -12,6 +12,9 @@ var playerInfo = {
 	"stats":{
 		"fired":0,
 		"enemydestroyed":0
+	},
+	"effects":{
+		
 	}
 }
 
@@ -21,24 +24,25 @@ var cages = {
 			"path":"res://Assets/coins50.svg",
 			"effect": {
 				"giveCoins": 50,
-				"positive": true
+				"positive": true,
+				"time": null
 			}
 		},
 		"coinsx2": {
 			"path":"res://Assets/coinx2.svg",
 			"effect": {
-				"coinEffect":{
-					"time": 20,
-					"amount": 2
-				},
-				"positive": true
+				"coinEffect":2,
+				"positive": true,
+				"time": 10,
+				
 			},
 		},
 		"reverse":{
 			"path": "res://Assets/reverse.svg",
-			"effects":{
+			"effect":{
 				"changeControls" : "reverse",
-				"positive": false
+				"positive": false,
+				"time": 10
 			}
 		} 
 	}

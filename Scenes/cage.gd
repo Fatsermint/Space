@@ -13,8 +13,11 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("bullets"):
-		self.texture = load(loot)
+		
+		self.texture = load(loot["path"])
 		status = "loot"
 func pick_random(dictionary:Dictionary):
 	var randomKey = dictionary.keys().pick_random()
 	return dictionary[randomKey]
+func get_loot():
+	return loot

@@ -118,6 +118,7 @@ func _process(delta: float) -> void:
 	if GlobalVariables.playerInfo.failed == true:
 		get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
 		
+	do_effects(delta)
 	if self.find_child("bullets"):
 		for b in self.find_child("bullets").get_children():
 			if b.position.y < -1000:
@@ -146,6 +147,23 @@ func _finish_level_text():
 	_finis_level(GlobalVariables.playerInfo["level"])
 	
 
+func do_effects(delta):
+	var effects = GlobalVariables.playerInfo["effects"]
+	print("player Info!!:::
+		\n \n\n\n\n\n\n
+		
+		
+		
+		
+		", GlobalVariables.playerInfo, "delta: ", delta)
+	for effect in effects:
+		var TheEffect= GlobalVariables.playerInfo["effects"][effect]
+		print(TheEffect)
+		if not TheEffect["time"]== null:
+			TheEffect["time"] -= delta * 3.6
+			if TheEffect["time"] <= 0:
+				GlobalVariables.playerInfo["effects"].erase(effect)
+				print("nulla")
 
 func _finis_level(level):
 	for child in get_children():

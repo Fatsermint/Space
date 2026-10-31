@@ -33,4 +33,13 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("cage"):
-		print("oo")
+		var cage = area.get_parent()
+		var lootDictionary = cage.get_loot()
+		var final
+		print(lootDictionary)
+		final = lootDictionary["effect"].keys()[0]
+		print(final)
+		GlobalVariables.playerInfo["effects"][final] = lootDictionary["effect"]
+
+		print(GlobalVariables.playerInfo["effects"])
+	
