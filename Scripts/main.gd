@@ -3,6 +3,7 @@ var enemy1: PackedScene = preload("res://Scenes/basic.tscn")
 var playerScene: PackedScene = preload("res://Scenes/player.tscn")
 var enemy2:PackedScene = preload("res://Scenes/enemy_2.tscn")
 var settingsScene: PackedScene = preload("res://Scenes/settings.tscn")
+var cageScene: PackedScene = preload("res://Scenes/cage.tscn")
 @onready var camera: Camera2D = $Camera
 @onready var bullets: Node = $bullets
 
@@ -38,6 +39,8 @@ func generate_level(levelNum):
 						enem.find_child("health").value = level[enemytype][num][1]
 						num = num +1
 						
+	if level["cages"] == true:
+		Generate_Cages()
 	
 	if level.has("settings") and level["settings"] == true:
 		settings = settingsScene.instantiate()
@@ -45,7 +48,16 @@ func generate_level(levelNum):
 		
 	
 	
+func Generate_Cages():
 
+	for random in randi_range(10, 50):
+			var cage = cageScene.instantiate()
+			call_deferred("add_child", cage)
+			cage.global_position = Vector2(randi_range(-250, 250),randi_range(-1000, -1200))
+			print("cage genrated at: ", cage.global_position)
+			cage.add_to_group("cage")
+			if randi_range(0,100) >50:
+				cage.texture = load("res://Assets/bad_cage.svg")
 	
 func newEnemy(position, type, parentType):
 	var num = 0

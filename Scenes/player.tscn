@@ -21,6 +21,9 @@ scale_3d_max = Vector3(0.74, 0.74, 0.74)
 scale_min = 0.099999994
 scale_max = 0.75
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1hc3"]
+size = Vector2(49, 56.999996)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=822506584]
 rotation = 3.1415927
 script = ExtResource("1_cvnsp")
@@ -91,3 +94,11 @@ texture = ExtResource("3_6t5aa")
 lifetime = 0.3
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_g1hc3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=414249907]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1010962214]
+position = Vector2(-1.5, 0.49999827)
+shape = SubResource("RectangleShape2D_g1hc3")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

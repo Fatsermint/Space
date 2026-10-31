@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://464ckgluvxkd"]
+
+[ext_resource type="Script" uid="uid://gi1qw4t11ycm" path="res://Scripts/shop.gd" id="1_a0mxf"]
+[ext_resource type="Texture2D" uid="uid://bl7me2qhpu5gb" path="res://Assets/SpaceRage/SpaceRage/FX/vulcan_1.png" id="2_2shtd"]
+
+[sub_resource type="Theme" id="Theme_dj6bp"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_r5jdq"]
+
+[node name="Shop" type="CanvasLayer" unique_id=539483886]
+script = ExtResource("1_a0mxf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=36607026]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_dj6bp")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1231928775]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1604043560]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer" unique_id=2093893704]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Bullets"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=621284242]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 90
+
+[node name="HScrollBar" type="HScrollBar" parent="VBoxContainer/HBoxContainer/HBoxContainer2" unique_id=1994021410]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer2/HScrollBar" unique_id=1893215062]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 169.0
+grow_vertical = 2
+theme = SubResource("Theme_r5jdq")
+theme_override_constants/separation = 13
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer2/HScrollBar/VBoxContainer" unique_id=758592703]
+layout_mode = 2
+text = "Vulcan"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer2/HScrollBar/VBoxContainer" unique_id=1485661304]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 50)
+offset_transform_scale = Vector2(6, 6)
+texture = ExtResource("2_2shtd")
+stretch_mode = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer2/HScrollBar" unique_id=2146804028]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_right = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1999442566]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1712503788]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=1016902654]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer" unique_id=370909847]
+layout_mode = 2
+size_flags_vertical = 3

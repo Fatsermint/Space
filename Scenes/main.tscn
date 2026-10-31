@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtd1dxgtoj7m4" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://4e8aspu2khpb" path="res://Assets/asteroid_1.svg" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://myv6f4emx2cc" path="res://Scenes/cage.tscn" id="3_8gbba"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ivno"]
 emission_shape_offset = Vector3(100, 0, 0)
@@ -42,3 +43,6 @@ lifetime = 30.0
 speed_scale = 2.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_5ivno")
+
+[node name="Sprite2D" parent="." unique_id=574887556 instance=ExtResource("3_8gbba")]
+position = Vector2(0, 1110)

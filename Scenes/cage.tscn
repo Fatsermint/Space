@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://myv6f4emx2cc"]
+
+[ext_resource type="Texture2D" uid="uid://dbe3s8xsa0ya5" path="res://Assets/cage.svg" id="1_wmog5"]
+[ext_resource type="Script" uid="uid://b4alm5nx4veso" path="res://Scenes/cage.gd" id="2_c4qbs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1hc3"]
+size = Vector2(80, 80)
+
+[node name="Sprite2D" type="Sprite2D" unique_id=574887556 groups=["cage"]]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wmog5")
+script = ExtResource("2_c4qbs")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1324768985]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=414824674]
+shape = SubResource("RectangleShape2D_g1hc3")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

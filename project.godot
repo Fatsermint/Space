@@ -37,6 +37,7 @@ bullets="player's bullets"
 enemy=""
 disabledFromPause=""
 newChild=""
+cage=""
 
 [gui]
 

@@ -15,6 +15,58 @@ var playerInfo = {
 	}
 }
 
+var cages = {
+	"loot":{
+		"coins50": {
+			"path":"res://Assets/coins50.svg",
+			"effect": {
+				"giveCoins": 50,
+				"positive": true
+			}
+		},
+		"coinsx2": {
+			"path":"res://Assets/coinx2.svg",
+			"effect": {
+				"coinEffect":{
+					"time": 20,
+					"amount": 2
+				},
+				"positive": true
+			},
+		},
+		"reverse":{
+			"path": "res://Assets/reverse.svg",
+			"effects":{
+				"changeControls" : "reverse",
+				"positive": false
+			}
+		} 
+	}
+}
+
+var shop = {
+	"bullets":{
+		"normal":{
+			"damage":20,
+			"effects":{
+				
+			}
+		},
+		"plasma":{
+			"damage":35,
+			"effects":{
+				"slow":{
+					"time": 1,
+					"strenght":0.75,
+				}
+			}
+		},
+	}
+}
+
+
+
+
 var enemyInfo = {
 	"enemy1": {
 		"path": "res://Scenes/basic.tscn",
@@ -63,7 +115,8 @@ var levels = {
 		"enemy3":[
 			[[0, -900], 100],
 		],
-		"settings":true
+		"settings":true,
+		"cages": true
 	},
 	2:{
 		"player":[[0, -25], true],
