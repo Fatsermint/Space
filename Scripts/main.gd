@@ -148,9 +148,15 @@ func _finish_level_text():
 	
 
 func do_effects(delta):
+	
 	var effects = GlobalVariables.playerInfo["effects"]
 	for effect in effects:
+		
 		var TheEffect= GlobalVariables.playerInfo["effects"][effect]
+		if effect == "giveCoins":
+			GlobalVariables.playerInfo["coins"] += TheEffect["giveCoins"]
+			GlobalVariables.playerInfo["effects"].erase(effect)
+			
 		if not TheEffect["time"]== null:
 			TheEffect["time"] -= delta
 			if TheEffect["time"] <= 0:
