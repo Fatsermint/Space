@@ -51,6 +51,13 @@ func showDamage(value, location, location2):
 	
 func _on_animation_player_animation_finished(explosion) -> void:
 	get_parent().check_end_level(self)
-	GlobalVariables.playerInfo.coins += GlobalVariables.enemyInfo[type].value
+	print(GlobalVariables.playerInfo["effects"], "THIS ONE")
+	if GlobalVariables.playerInfo["effects"].has("coinEffect") == true: 
+	
+	
+		GlobalVariables.playerInfo.coins += GlobalVariables.enemyInfo[type].value * GlobalVariables.playerInfo["effects"]["coinEffect"]["coinEffect"]
+	else:
+		GlobalVariables.playerInfo.coins += GlobalVariables.enemyInfo[type].value 
+		
 	print(GlobalVariables.playerInfo.coins," Coins!")
 	self.queue_free()

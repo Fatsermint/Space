@@ -2,7 +2,7 @@ extends Node
 
 
 var bulletDamages = [20]
-var whitelistedObjectsNames = ["bullets", "Camera", "Label", "asteroid", "Settings"]	
+var whitelistedObjectsNames = ["bullets", "Camera", "Label", "asteroid", "Settings", "UI"]	
 var playerInfo = {
 	"level": 0,
 	"bullet": "level1",
@@ -98,7 +98,7 @@ var enemyInfo = {
 			"%": 0.75,
 			"normal":0
 		},
-		"speed": 1.5,
+		"speed": 0.2,
 		"value": 75,
 		"child":{
 			"positions":[[75, 0],[-75, 0]],
@@ -117,7 +117,7 @@ var levels = {
 			[[0, -1000], 100],
 		],
 		"enemy3":[
-			[[0, -900], 100],
+			[[0, -300], 100],
 		],
 		"settings":true,
 		"cages": true

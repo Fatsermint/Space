@@ -149,21 +149,12 @@ func _finish_level_text():
 
 func do_effects(delta):
 	var effects = GlobalVariables.playerInfo["effects"]
-	print("player Info!!:::
-		\n \n\n\n\n\n\n
-		
-		
-		
-		
-		", GlobalVariables.playerInfo, "delta: ", delta)
 	for effect in effects:
 		var TheEffect= GlobalVariables.playerInfo["effects"][effect]
-		print(TheEffect)
 		if not TheEffect["time"]== null:
-			TheEffect["time"] -= delta * 3.6
+			TheEffect["time"] -= delta
 			if TheEffect["time"] <= 0:
 				GlobalVariables.playerInfo["effects"].erase(effect)
-				print("nulla")
 
 func _finis_level(level):
 	for child in get_children():
