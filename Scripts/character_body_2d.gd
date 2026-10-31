@@ -6,8 +6,10 @@ var bullet = preload("res://Scenes/bullet.tscn").instantiate()
 
 func _physics_process(delta: float) -> void:
 	var input_direction = Input.get_vector("left", "right", "up", "down")
-	
-	velocity = input_direction* speed
+	if GlobalVariables.playerInfo["effects"].has("changeControls") and GlobalVariables.playerInfo["effects"]["changeControls"]["changeControls"] == "reverse":
+		velocity = input_direction* speed * -1
+	else:
+		velocity = input_direction* speed
 	
 	if Input.is_action_just_pressed("fire"):
 		GlobalVariables.playerInfo.stats.fired += 1
