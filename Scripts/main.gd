@@ -77,11 +77,6 @@ func newEnemy(position, type, parentType):
 		enem.global_position = Vector2(enemyInfo["child"]["positions"][num][0] + position[0], enemyInfo["child"]["positions"][num][1]+position[1])
 		enem.find_child("health").value = enemyInfo.child.hp
 		num += 1
-
-		
-		
-		
-		
 func check_end_level(selfEnemy):
 	var end = true
 	for child in get_children():
@@ -115,6 +110,8 @@ func _ready() -> void:
 	generate_level(GlobalVariables.playerInfo["level"]+1)
 
 func _process(delta: float) -> void:
+	if not GlobalVariables.playerInfo["hp"] > 0:
+		GlobalVariables.playerInfo["failed"] = true
 	if GlobalVariables.playerInfo.failed == true:
 		get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
 		
@@ -127,6 +124,7 @@ func _process(delta: float) -> void:
 		var newNode = Node.new()
 		add_child(newNode)
 		newNode.name = "bullets"
+		
 func _finish_level_text():
 	var position1 = Vector2(-113, -820.0)
 	var position2 = Vector2(-113, 100)
@@ -144,6 +142,7 @@ func _finish_level_text():
 	
 	tween2.tween_property(label, "position", position2, 0.2)
 	await get_tree().create_timer(0.8, false).timeout
+	GlobalVariables.playerInfo["level"]= GlobalVariables.playerInfo["level"]+ 1
 	_finis_level(GlobalVariables.playerInfo["level"])
 	
 
@@ -166,7 +165,7 @@ func _finis_level(level):
 	for child in get_children():
 		if not GlobalVariables.whitelistedObjectsNames.has(child.name):
 			child.queue_free()
-	GlobalVariables.playerInfo["level"] = level +1
+	GlobalVariables.playerInfo["level"] += 1
 	
 	generate_level(GlobalVariables.playerInfo["level"])
 	finishing = false

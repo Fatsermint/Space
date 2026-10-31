@@ -4,7 +4,7 @@ extends Node
 var bulletDamages = [20]
 var whitelistedObjectsNames = ["bullets", "Camera", "Label", "asteroid", "Settings", "UI"]	
 var playerInfo = {
-	"level": 0,
+	"level": 2,
 	"bullet": "level1",
 	"failed": null,
 	"coins": 0,
@@ -43,6 +43,14 @@ var cages = {
 				"changeControls" : "reverse",
 				"positive": false,
 				"time": 10
+			}
+		} ,
+		"freeze":{
+			"path": "res://Assets/freeze.svg",
+			"effect":{
+				"freeze" : 0,
+				"positive": true,
+				"time": 3
 			}
 		} 
 	}
@@ -129,7 +137,9 @@ var levels = {
 			,
 			[[0, -1300], 100]
 			],
-		"settings":true
+		"settings":true,
+		"cages": true
+		
 			
 	},
 	3:{
@@ -141,7 +151,9 @@ var levels = {
 			,
 			[[100, -1400], 100]
 			],
-		"settings":true
+		"settings":true,
+		"cages": true
+		
 			
 	},
 	4:{
@@ -155,7 +167,9 @@ var levels = {
 			,
 			[[200, -1600], 100]
 			],
-		"settings":true
+		"settings":true,
+		"cages": true
+		
 			
 	},
 	5:{
@@ -171,13 +185,15 @@ var levels = {
 			,
 			[[100, -1600], 100]
 			],
-		"settings":true
+		"cages": true,
+		"settings":true,
 			
 	},
 	6:{
 		"player":[[0, -25], true],
 		"enemy2":[[[0, -1000], 100]],
-		"settings":true
+		"settings":true,
+		"cages": true,
 			
 	},
 	7:{
@@ -190,6 +206,7 @@ var levels = {
 		"enemy2":[
 			[[0, -1300], 100]
 		],
+		"cages": true,
 		"settings":true
 			
 	},
@@ -213,6 +230,7 @@ var levels = {
 			[[100, -1600], 100]
 			
 			],
+		"cages": true,
 		"settings":true
 			
 	},
@@ -228,6 +246,7 @@ var levels = {
 		"enemy2":[
 			[[0, -1300], 100]
 		],
+		"cages": true,
 		"settings":true
 			
 	},
@@ -243,6 +262,7 @@ var levels = {
 		"enemy2":[
 			[[0, -1000], 100]
 		],
+		"cages": true,
 		"settings":true
 			
 	},
@@ -253,6 +273,7 @@ var levels = {
 			[[75, -1000], 75],
 			[[-75, -1300], 75]
 		],
+		"cages": true,
 		"settings":true
 			
 	},
@@ -268,6 +289,7 @@ var levels = {
 			[[-75, -1250], 100]
 			
 		],
+		"cages": true,
 		"settings":true
 			
 	},
@@ -287,6 +309,7 @@ var levels = {
 			[[-75, -1300], 100],
 			
 		],
+		"cages": true,
 		"settings":true
 			
 	},
@@ -302,7 +325,8 @@ var levels = {
 			[[0, -1000], 100],
 			[[0, -1250], 100],
 		],
-		"settings":true
+		"settings":true,
+		"cages": true,
 			
 	},
 	15:{
@@ -316,7 +340,8 @@ var levels = {
 		"enemy1":[
 			[[0, -1250], 100],
 		],
-		"settings":true
+		"cages": true,
+		"settings":true,
 			
 	},
 	16:{
@@ -333,6 +358,7 @@ var levels = {
 			[[-75, -1350], 100],
 			
 		],
+		"cages": true,
 		"settings":true
 			
 	},
@@ -350,6 +376,7 @@ var levels = {
 			[[0, -1350], 100],
 			
 		],
+		"cages": true,
 		"settings":true
 			
 	},
@@ -367,6 +394,7 @@ var levels = {
 			[[0, -1350], 100],
 			
 		],
+		"cages": true,
 		"settings":true
 			
 	},
@@ -387,6 +415,7 @@ var levels = {
 			[[150, -1225], 100],
 			[[-150, -1225], 100],
 		],
+		"cages": true,
 		"settings":true
 			
 	},
@@ -416,6 +445,7 @@ var levels = {
 			[[200, -1300], 100],
 			[[-200, -1300], 100],
 		],
+		"cages": true,
 		"settings":true
 			
 	},

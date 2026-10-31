@@ -3,10 +3,16 @@ extends Sprite2D
 signal summonNewEnemies
 var type
 func _process(delta: float) -> void:
+	var freeze = 100
+	if GlobalVariables.playerInfo["effects"].has("freeze"):
+		freeze = GlobalVariables.playerInfo["effects"]["freeze"]["freeze"]
+		print(freeze, "freeze")
 	if not $AnimationPlayer.current_animation == "explosion":
-		self.position.y += GlobalVariables.enemyInfo[self.editor_description].speed *delta *60
+		self.position.y += GlobalVariables.enemyInfo[self.editor_description].speed *delta *60 * (freeze*0.01)
 	if self.position.y > -10:
 		succes()
+	if freeze > 0 and self.find_child("freeze"):
+		print("started")
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("bullets"):
 		type = self.editor_description
@@ -37,7 +43,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	
 	
 func succes():
-	GlobalVariables.playerInfo.failed = true
+	GlobalVariables.playerInfo.hp -= healthBar.value *0.5
+	self.queue_free()
+
 func showDamage(value, location, location2):
 	var label = $Label.duplicate()
 	add_child(label)
@@ -58,6 +66,4 @@ func _on_animation_player_animation_finished(explosion) -> void:
 		GlobalVariables.playerInfo.coins += GlobalVariables.enemyInfo[type].value * GlobalVariables.playerInfo["effects"]["coinEffect"]["coinEffect"]
 	else:
 		GlobalVariables.playerInfo.coins += GlobalVariables.enemyInfo[type].value 
-		
-	print(GlobalVariables.playerInfo.coins," Coins!")
 	self.queue_free()

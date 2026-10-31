@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cq5khu7db60cf"]
 
-[ext_resource type="Script" uid="uid://jbevkxshknuq" path="res://Scenes/start_screen.gd" id="1_i8r30"]
-[ext_resource type="FontFile" uid="uid://dkru7m5dcdtds" path="res://Assets/Quantico-Bold.ttf" id="2_ainjc"]
+[ext_resource type="Script" uid="uid://jbevkxshknuq" path="res://Scripts/start_screen.gd" id="1_i8r30"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8r30"]
 border_width_left = 3
@@ -157,13 +156,11 @@ offset_bottom = 152.0
 grow_horizontal = 0
 scale = Vector2(0.275, 0.275)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ainjc")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
 text = "x"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1497493035]
-visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -175,11 +172,11 @@ alignment = 1
 
 [node name="Label" type="Label" parent="HBoxContainer" unique_id=1140153364]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_ainjc")
 theme_override_font_sizes/font_size = 50
 text = "Failed at level x"
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1162844144]
+visible = false
 offset_left = 75.0
 offset_top = 200.0
 offset_right = 525.0
@@ -261,7 +258,6 @@ offset_bottom = 152.0
 grow_horizontal = 0
 scale = Vector2(0.275, 0.275)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ainjc")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
 text = "x"
