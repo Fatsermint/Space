@@ -11,8 +11,11 @@ func _process(delta: float) -> void:
 		self.position.y += GlobalVariables.enemyInfo[self.editor_description].speed *delta *60 * (freeze*0.01)
 	if self.position.y > -10:
 		succes()
-	if freeze > 0 and self.find_child("freeze"):
-		print("started")
+	if freeze < 100:
+		$Sprite2D2.visible = true
+	else:
+		$Sprite2D2.visible = false
+		
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("bullets"):
 		type = self.editor_description
