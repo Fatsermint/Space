@@ -58,6 +58,7 @@ func Generate_Cages():
 			cage.add_to_group("cage")
 			if randi_range(0,100) >50:
 				cage.texture = load("res://Assets/bad_cage.svg")
+				cage.editor_description = "bad"
 	
 func newEnemy(position, type, parentType):
 	var num = 0
