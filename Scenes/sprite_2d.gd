@@ -46,9 +46,8 @@ func _on_button_toggled(toggled_on: bool) -> void:
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	snapping = toggled_on
-	print(toggled_on)
+
 
 
 func _on_button_pressed() -> void:
 	next_state()
-	print(state)

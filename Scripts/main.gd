@@ -50,10 +50,10 @@ func generate_level(levelNum):
 	
 func Generate_Cages():
 
-	for random in randi_range(10, 50):
+	for random in randi_range(2, 10):
 			var cage = cageScene.instantiate()
 			call_deferred("add_child", cage)
-			cage.global_position = Vector2(randi_range(-250, 250),randi_range(-1000, -1200))
+			cage.global_position = Vector2(randi_range(-250, 250),randi_range(-1000, -2500))
 			print("cage genrated at: ", cage.global_position)
 			cage.add_to_group("cage")
 			if randi_range(0,100) >50:

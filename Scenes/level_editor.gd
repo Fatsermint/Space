@@ -24,3 +24,24 @@ func _on_button_pressed() -> void:
 	new.global_position = Vector2(300, 500)
 	new.visible = true
 	new.name = "0"
+
+
+func _on_button_add_pressed() -> void:
+	$VBoxContainer.visible = not $VBoxContainer.visible
+	
+
+
+func _on_button_2_pressed() -> void:
+	var new = sprite_2.duplicate()
+	levelNode.add_child(new)
+	new.global_position = Vector2(300, 500)
+	new.visible = true
+	new.name = "0"
+
+
+func _on_button_3_pressed() -> void:
+	var new = sprite_3.duplicate()
+	levelNode.add_child(new)
+	new.global_position = Vector2(300, 500)
+	new.visible = true
+	new.name = "0"

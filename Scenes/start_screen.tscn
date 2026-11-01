@@ -85,6 +85,21 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
 text = "Settings"
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=912441165]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=78795502]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Level editor"
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=918650997]
 visible = false
 offset_left = 75.0
@@ -265,5 +280,6 @@ text = "x"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_settings_escape_pressed"]
 [connection signal="pressed" from="ColorRect2/Button" to="." method="_on_button_tutorial_escape_pressed"]
