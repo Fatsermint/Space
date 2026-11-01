@@ -65,7 +65,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = 750.0
-offset_right = 600.0
+offset_right = 475.0
 offset_bottom = 1000.0
 grow_vertical = 0
 draw_tabs = true
@@ -75,9 +75,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -28.0
-offset_right = 28.0
-offset_bottom = 23.0
+offset_left = -27.5
+offset_top = -20.0
+offset_right = 28.5
+offset_bottom = 3.0
 grow_horizontal = 2
 text = "Output"
 
@@ -109,7 +110,7 @@ text = "Enemy 3"
 [node name="level" type="Node2D" parent="." unique_id=819986527]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1567448992]
-editor_description = "sprite_1"
+editor_description = "enemy1"
 visible = false
 position = Vector2(-2, 6)
 texture = ExtResource("2_rot6e")
@@ -137,7 +138,7 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0.2784314)
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=27792607]
-editor_description = "sprite_1"
+editor_description = "enemy2"
 visible = false
 position = Vector2(-2, 6)
 texture = ExtResource("3_wchaa")
@@ -165,7 +166,8 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0.2784314)
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1960919909]
-editor_description = "sprite_1"
+editor_description = "enemy3"
+visible = false
 position = Vector2(-2, 6)
 texture = ExtResource("4_iwybi")
 script = ExtResource("3_iwybi")
@@ -198,6 +200,52 @@ offset_right = 480.0
 offset_bottom = 407.0
 text = "This doesn't really work yet and this is very buggy"
 script = ExtResource("4_rot6e")
+
+[node name="LevelSettings" type="VBoxContainer" parent="." unique_id=427143761]
+offset_left = 480.0
+offset_top = 750.0
+offset_right = 520.0
+offset_bottom = 790.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSettings" unique_id=92650912]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LevelSettings/VBoxContainer" unique_id=1089167350]
+layout_mode = 2
+text = "Level Number"
+
+[node name="LineEdit" type="LineEdit" parent="LevelSettings/VBoxContainer" unique_id=1194789030]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="LevelSettings" unique_id=640116828]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LevelSettings/VBoxContainer2" unique_id=1756388421]
+layout_mode = 2
+text = "Player"
+
+[node name="LineEdit" type="CheckButton" parent="LevelSettings/VBoxContainer2" unique_id=680298888]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="LevelSettings" unique_id=2003929980]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LevelSettings/VBoxContainer3" unique_id=1025164268]
+layout_mode = 2
+text = "Settings"
+
+[node name="LineEdit" type="CheckButton" parent="LevelSettings/VBoxContainer3" unique_id=482065853]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="HBoxContainer" parent="LevelSettings" unique_id=1508291783]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LevelSettings/VBoxContainer4" unique_id=1739611596]
+layout_mode = 2
+text = "Cages"
+
+[node name="LineEdit" type="CheckButton" parent="LevelSettings/VBoxContainer4" unique_id=132406981]
+layout_mode = 2
 
 [connection signal="pressed" from="BoxContainer2/BoxContainer/HBoxContainer/Button" to="." method="_on_button_add_pressed"]
 [connection signal="text_changed" from="BoxContainer2/BoxContainer/HBoxContainer/LineEdit2" to="Sprite2D" method="_on_line_edit_2_text_changed"]
