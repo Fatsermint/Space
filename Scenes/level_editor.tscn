@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://blrlo7tg7nhfv" path="res://Scenes/level_editor.gd" id="1_5o76e"]
 [ext_resource type="Texture2D" uid="uid://bwsn8jisdhsmc" path="res://Assets/SpaceRage/SpaceRage/Enemies/enemy_1_b_m.png" id="2_rot6e"]
 [ext_resource type="Script" uid="uid://3ps16tvkbase" path="res://Scenes/sprite_2d.gd" id="3_iwybi"]
+[ext_resource type="Texture2D" uid="uid://cabb8d7t0x0q" path="res://Assets/SpaceRage/SpaceRage/Enemies/enemy_2_g_m.png" id="3_wchaa"]
+[ext_resource type="Texture2D" uid="uid://b0erporhpqn7" path="res://Assets/SpaceRage/SpaceRage/Enemies/mine_1_01.png" id="4_iwybi"]
 [ext_resource type="Script" uid="uid://w3drow6wiqti" path="res://Scenes/label.gd" id="4_rot6e"]
 
 [node name="Node2D" type="Node2D" unique_id=2111736086]
@@ -108,6 +110,7 @@ text = "Enemy 3"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1567448992]
 editor_description = "sprite_1"
+visible = false
 position = Vector2(-2, 6)
 texture = ExtResource("2_rot6e")
 script = ExtResource("3_iwybi")
@@ -135,8 +138,9 @@ color = Color(1, 1, 1, 0.2784314)
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=27792607]
 editor_description = "sprite_1"
+visible = false
 position = Vector2(-2, 6)
-texture = ExtResource("2_rot6e")
+texture = ExtResource("3_wchaa")
 script = ExtResource("3_iwybi")
 
 [node name="Button" type="CheckButton" parent="Sprite2D2" unique_id=1308252389]
@@ -163,7 +167,7 @@ color = Color(1, 1, 1, 0.2784314)
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1960919909]
 editor_description = "sprite_1"
 position = Vector2(-2, 6)
-texture = ExtResource("2_rot6e")
+texture = ExtResource("4_iwybi")
 script = ExtResource("3_iwybi")
 
 [node name="Button" type="CheckButton" parent="Sprite2D3" unique_id=1288923858]
@@ -196,6 +200,7 @@ text = "This doesn't really work yet and this is very buggy"
 script = ExtResource("4_rot6e")
 
 [connection signal="pressed" from="BoxContainer2/BoxContainer/HBoxContainer/Button" to="." method="_on_button_add_pressed"]
+[connection signal="text_changed" from="BoxContainer2/BoxContainer/HBoxContainer/LineEdit2" to="Sprite2D" method="_on_line_edit_2_text_changed"]
 [connection signal="toggled" from="BoxContainer2/BoxContainer/HBoxContainer/CheckButton" to="Sprite2D" method="_on_check_button_toggled"]
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
