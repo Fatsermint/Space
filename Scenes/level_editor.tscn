@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://58ugb1x2gdgn"]
+
+[ext_resource type="Script" uid="uid://blrlo7tg7nhfv" path="res://Scenes/level_editor.gd" id="1_5o76e"]
+[ext_resource type="Texture2D" uid="uid://bwsn8jisdhsmc" path="res://Assets/SpaceRage/SpaceRage/Enemies/enemy_1_b_m.png" id="2_rot6e"]
+[ext_resource type="Script" uid="uid://3ps16tvkbase" path="res://Scenes/sprite_2d.gd" id="3_iwybi"]
+[ext_resource type="Texture2D" uid="uid://cabb8d7t0x0q" path="res://Assets/SpaceRage/SpaceRage/Enemies/enemy_2_g_m.png" id="3_wchaa"]
+[ext_resource type="Texture2D" uid="uid://b0erporhpqn7" path="res://Assets/SpaceRage/SpaceRage/Enemies/mine_1_01.png" id="4_iwybi"]
+
+[node name="Node2D" type="Node2D" unique_id=2111736086]
+script = ExtResource("1_5o76e")
+
+[node name="BoxContainer2" type="BoxContainer" parent="." unique_id=544103877]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BoxContainer" type="BoxContainer" parent="BoxContainer2" unique_id=1332457629]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer2/BoxContainer" unique_id=116676622]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1035317346]
+layout_mode = 2
+text = "Add"
+
+[node name="Button2" type="Button" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=133378127]
+layout_mode = 2
+text = "Remove"
+
+[node name="Label" type="Label" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1206064297]
+layout_mode = 2
+text = "X"
+
+[node name="LineEdit" type="LineEdit" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=179240601]
+layout_mode = 2
+text = "0"
+
+[node name="Label2" type="Label" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=727897502]
+layout_mode = 2
+text = "Y"
+
+[node name="LineEdit2" type="LineEdit" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1514169011]
+layout_mode = 2
+text = "0"
+
+[node name="Label3" type="Label" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=322370495]
+layout_mode = 2
+text = "HP"
+
+[node name="LineEdit3" type="LineEdit" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1884057091]
+layout_mode = 2
+text = "100"
+
+[node name="Label4" type="Label" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1237977917]
+layout_mode = 2
+text = "SNAP"
+
+[node name="CheckButton" type="CheckButton" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1712147158]
+layout_mode = 2
+button_pressed = true
+
+[node name="CodeEdit" type="CodeEdit" parent="." unique_id=1972445639]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 750.0
+offset_right = 600.0
+offset_bottom = 1000.0
+grow_vertical = 0
+draw_tabs = true
+
+[node name="Label" type="Label" parent="CodeEdit" unique_id=1581940823]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_right = 28.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Output"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1830485907]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 41.0
+offset_right = 74.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1536406529]
+layout_mode = 2
+text = "Enemy 1"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1643594311]
+layout_mode = 2
+text = "Enemy 2"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=480350220]
+layout_mode = 2
+text = "Enemy 3"
+
+[node name="level" type="Node2D" parent="." unique_id=819986527]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1567448992]
+editor_description = "sprite_1"
+position = Vector2(-2, 6)
+texture = ExtResource("2_rot6e")
+script = ExtResource("3_iwybi")
+
+[node name="Button" type="CheckButton" parent="Sprite2D" unique_id=1403829660]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -28.0
+offset_top = -24.0
+offset_right = 27.0
+offset_bottom = 22.0
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=1014492717]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.2784314)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1709477516]
+editor_description = "sprite_2"
+visible = false
+texture = ExtResource("3_wchaa")
+
+[node name="Button" type="Button" parent="Sprite2D2" unique_id=1323996064]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -28.0
+offset_top = -24.0
+offset_right = 27.0
+offset_bottom = 22.0
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=285362060]
+editor_description = "sprite_3"
+visible = false
+texture = ExtResource("4_iwybi")
+
+[node name="Button" type="Button" parent="Sprite2D3" unique_id=698497181]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -28.0
+offset_top = -24.0
+offset_right = 27.0
+offset_bottom = 22.0
+
+[connection signal="toggled" from="BoxContainer2/BoxContainer/HBoxContainer/CheckButton" to="Sprite2D" method="_on_check_button_toggled"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="Sprite2D/Button" to="Sprite2D" method="_on_button_button_down"]
+[connection signal="button_up" from="Sprite2D/Button" to="Sprite2D" method="_on_button_button_up"]
+[connection signal="toggled" from="Sprite2D/Button" to="Sprite2D" method="_on_button_toggled"]
