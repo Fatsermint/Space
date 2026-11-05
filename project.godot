@@ -24,7 +24,7 @@ DamageUi="*uid://ba2yn3xjsamik"
 
 window/size/viewport_width=600
 window/size/viewport_height=1000
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [editor_plugins]

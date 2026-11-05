@@ -7,10 +7,17 @@
 script = ExtResource("1_m6bxq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=524062389]
-offset_left = 346.0
-offset_top = 873.0
-offset_right = 386.0
-offset_bottom = 913.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = -127.0
+offset_right = 83.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(3, 3)
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=788311591]
@@ -20,25 +27,32 @@ color = Color(0.51, 0.51, 0.51, 0.5137255)
 
 [node name="TextureButton" type="TextureButton" parent="HBoxContainer/ColorRect" unique_id=1696816635]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -18.0
-offset_top = -18.0
-offset_right = 82.0
-offset_bottom = 82.0
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = -0.24000001
+anchor_right = 1.0
+anchor_bottom = -0.24000001
+offset_left = -38.0
+offset_top = 11.6
+offset_right = 62.0
+offset_bottom = 111.6
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.35524735, 0.35524735)
 texture_normal = ExtResource("1_i1863")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=962372338]
-offset_left = 593.0
-offset_top = 993.0
-offset_right = 633.0
-offset_bottom = 1033.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 33.0
+offset_bottom = 34.0
+grow_horizontal = 0
+grow_vertical = 0
 rotation = 3.1415927
 scale = Vector2(3, 3)
 
@@ -64,9 +78,14 @@ scale = Vector2(0.35524735, 0.35524735)
 texture_normal = ExtResource("1_i1863")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="." unique_id=1252715593]
-offset_top = 900.0
-offset_right = 40.0
-offset_bottom = 940.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.999999
+offset_top = -112.99994
+offset_right = 53.0
+offset_bottom = -72.99994
+grow_vertical = 0
 scale = Vector2(2.5, 2.5)
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer3" unique_id=868523722]
