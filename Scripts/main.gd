@@ -13,7 +13,11 @@ func generate_level(levelNum):
 	var level = GlobalVariables.levels[levelNum]
 	var root = get_tree().get_root()
 
-	
+	if GlobalVariables.playerInfo["device"] == "phone":
+		$Phone_Buttons.visible = true
+	else:
+		$Phone_Buttons.visible = false
+		
 	if level["player"][1] == true:
 		var player = playerScene.instantiate()
 		add_child(player)

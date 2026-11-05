@@ -2,7 +2,7 @@ extends Node
 
 
 var bulletDamages = [20]
-var whitelistedObjectsNames = ["bullets", "Camera", "Label", "asteroid", "Settings", "UI", "BG"]	
+var whitelistedObjectsNames = ["bullets", "Camera", "Label", "asteroid", "Settings", "UI", "BG", "Phone_Buttons"]	
 var playerInfo = {
 	"level": 2,
 	"bullet": "level1",
