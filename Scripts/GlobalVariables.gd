@@ -8,6 +8,7 @@ var playerInfo = {
 	"bullet": "level1",
 	"failed": null,
 	"coins": 0,
+	"device": null,
 	"hp": 200,
 	"stats":{
 		"fired":0,

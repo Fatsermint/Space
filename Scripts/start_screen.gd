@@ -39,3 +39,13 @@ func _on_button_tutorial_escape_pressed() -> void:
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/level_editor.tscn")
+
+
+func _on_texture_button_pressed() -> void:
+	$ColorRect3.queue_free()
+	GlobalVariables.playerInfo["device"] = "pc"
+
+
+func _on_texture_button_pressed_phone() -> void:
+	$ColorRect3.queue_free()
+	GlobalVariables.playerInfo["device"] = "phone"

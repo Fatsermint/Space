@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cq5khu7db60cf"]
 
 [ext_resource type="Script" uid="uid://jbevkxshknuq" path="res://Scripts/start_screen.gd" id="1_i8r30"]
+[ext_resource type="Texture2D" uid="uid://dqi7pemqh5rgu" path="res://Assets/desktop.svg" id="2_ainjc"]
+[ext_resource type="Texture2D" uid="uid://b25t7sxiqvbp1" path="res://Assets/mobile.svg" id="3_60ddj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8r30"]
 border_width_left = 3
@@ -277,9 +279,70 @@ theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
 text = "x"
 
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=258011368]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.41, 0.41, 0.41, 1)
+
+[node name="Label" type="Label" parent="ColorRect3" unique_id=1348679453]
+layout_mode = 0
+offset_top = 237.0
+offset_right = 600.0
+offset_bottom = 737.0
+text = "Select device type"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect3" unique_id=1013117331]
+top_level = true
+z_index = 10
+layout_mode = 0
+offset_top = 300.0
+offset_right = 90.0
+offset_bottom = 340.0
+scale = Vector2(6.6658273, 6.667364)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect3/HBoxContainer3" unique_id=420505252]
+z_index = -4
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+mouse_filter = 1
+color = Color(0.52, 0.52, 0.52, 1)
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect3/HBoxContainer3/ColorRect" unique_id=1252088408]
+layout_mode = 0
+offset_left = 2.9999998
+offset_top = 4.0
+offset_right = 108.970146
+offset_bottom = 123.402985
+scale = Vector2(0.335, 0.335)
+texture_normal = ExtResource("2_ainjc")
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect3/HBoxContainer3" unique_id=945073406]
+z_index = -4
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+mouse_filter = 1
+color = Color(0.52, 0.52, 0.52, 1)
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect3/HBoxContainer3/ColorRect2" unique_id=1371120090]
+layout_mode = 0
+offset_left = 2.9999998
+offset_top = 4.0
+offset_right = 108.970146
+offset_bottom = 123.402985
+scale = Vector2(0.335, 0.335)
+texture_normal = ExtResource("3_60ddj")
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer4/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_settings_escape_pressed"]
 [connection signal="pressed" from="ColorRect2/Button" to="." method="_on_button_tutorial_escape_pressed"]
+[connection signal="pressed" from="ColorRect3/HBoxContainer3/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ColorRect3/HBoxContainer3/ColorRect2/TextureButton" to="." method="_on_texture_button_pressed_phone"]
