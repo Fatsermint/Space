@@ -40,6 +40,7 @@ theme_override_font_sizes/font_size = 67
 text = "Level 2"
 
 [node name="asteroid" type="GPUParticles2D" parent="." unique_id=520892611]
+z_index = 1
 position = Vector2(329, -1026)
 amount = 20
 texture = ExtResource("2_bo1nx")
