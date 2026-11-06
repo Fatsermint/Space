@@ -6,10 +6,11 @@ var settingsScene: PackedScene = preload("res://Scenes/settings.tscn")
 var cageScene: PackedScene = preload("res://Scenes/cage.tscn")
 @onready var camera: Camera2D = $Camera
 @onready var bullets: Node = $bullets
-
+signal textReady
 var settings = settingsScene.instantiate()
 var finishing = false
-func generate_level(levelNum):
+func generate_level(levelNumber):
+	var levelNum = levelNumber+1
 	var level = GlobalVariables.levels[levelNum]
 	var root = get_tree().get_root()
 
@@ -95,7 +96,8 @@ func check_end_level(selfEnemy):
 		else:
 			pass
 	if end == true:
-		_finish_level_text()
+		await _finish_level_text()
+		_finis_level(GlobalVariables.playerInfo["level"])
 	end = true
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("escape"):
@@ -112,7 +114,7 @@ func pause_gameplay():
 			if not child.is_in_group("disabledFromPause"):
 				child.process_mode = Node.PROCESS_MODE_DISABLED
 func _ready() -> void:
-	generate_level(GlobalVariables.playerInfo["level"]+1)
+	generate_level(GlobalVariables.playerInfo["level"])
 
 func _process(delta: float) -> void:
 	if not GlobalVariables.playerInfo["hp"] > 0:
@@ -131,6 +133,8 @@ func _process(delta: float) -> void:
 		newNode.name = "bullets"
 		
 func _finish_level_text():
+	_finis_level(GlobalVariables.playerInfo["level"])
+	
 	var position1 = Vector2(-113, -820.0)
 	var position2 = Vector2(-113, 100)
 	
@@ -147,9 +151,8 @@ func _finish_level_text():
 	
 	tween2.tween_property(label, "position", position2, 0.2)
 	await get_tree().create_timer(0.8, false).timeout
-	GlobalVariables.playerInfo["level"]= GlobalVariables.playerInfo["level"]+ 1
-	_finis_level(GlobalVariables.playerInfo["level"])
-	
+	GlobalVariables.playerInfo["level"]+= 1
+	textReady.emit()
 
 func do_effects(delta):
 	
@@ -170,7 +173,7 @@ func _finis_level(level):
 	for child in get_children():
 		if not GlobalVariables.whitelistedObjectsNames.has(child.name):
 			child.queue_free()
-	GlobalVariables.playerInfo["level"] += 1
 	
+	await textReady
 	generate_level(GlobalVariables.playerInfo["level"])
 	finishing = false
