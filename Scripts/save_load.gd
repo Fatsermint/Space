@@ -33,5 +33,4 @@ func load():
 		var data = file.get_var()
 		file.close()
 		var save_data = data
-		content.money = save_data.money
 		print(save_data)

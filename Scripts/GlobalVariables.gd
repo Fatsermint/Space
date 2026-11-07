@@ -4,7 +4,7 @@ extends Node
 var bulletDamages = [20]
 var whitelistedObjectsNames = ["bullets", "Camera", "Label", "asteroid", "Settings", "UI", "BG", "Phone_Buttons"]	
 var playerInfo = {
-	"level": 2,
+	"level": 0,
 	"bullet": "level1",
 	"failed": null,
 	"coins": 0,

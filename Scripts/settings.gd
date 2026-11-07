@@ -27,3 +27,6 @@ func _on_save_button_pressed() -> void:
 
 func _on_load_button_pressed() -> void:
 	SaveLoad.load()
+func _on_home_button_pressed() -> void:
+	await SaveLoad.save()
+	get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")

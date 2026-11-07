@@ -57,6 +57,21 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
 text = "Start Game"
 
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer" unique_id=295997645]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer5" unique_id=878050386]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Continue"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=2028201153]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -280,6 +295,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
 text = "x"
 
 [node name="ColorRect3" type="ColorRect" parent="." unique_id=258011368]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -339,6 +355,7 @@ scale = Vector2(0.335, 0.335)
 texture_normal = ExtResource("3_60ddj")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_start_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/Button" to="." method="_on_button_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer4/Button" to="." method="_on_button_pressed"]

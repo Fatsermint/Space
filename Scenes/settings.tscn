@@ -91,4 +91,4 @@ grow_vertical = 0
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/CheckButton" to="." method="_on_check_button_pressed_limited_fps"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer4/CheckButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer5/CheckButton" to="." method="_on_load_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer6/CheckButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer6/CheckButton" to="." method="_on_home_button_pressed"]

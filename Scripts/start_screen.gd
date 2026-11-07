@@ -22,7 +22,6 @@ func _on_button_settings_escape_pressed() -> void:
 
 func _process(delta: float) -> void:
 	if GlobalVariables.playerInfo["level"]>=0:
-		print("failed at level", GlobalVariables.playerInfo["level"])
 		failedContainer.visible = true
 		$HBoxContainer/Label.text = "You failed at level "+str(GlobalVariables.playerInfo["level"])
 		await get_tree().create_timer(5).timeout
@@ -31,6 +30,13 @@ func _process(delta: float) -> void:
 
 func set_stats_back():
 	GlobalVariables.playerInfo["level"] = 0
+	GlobalVariables.playerInfo["coins"] = 0
+	GlobalVariables.playerInfo["hp"] = 200
+	GlobalVariables.playerInfo["stats"]["fired"] = 0
+	GlobalVariables.playerInfo["stats"]["enemydestroyed"] = 0
+	GlobalVariables.playerInfo["failed"] = null
+	
+	
 
 
 func _on_button_tutorial_escape_pressed() -> void:
@@ -49,3 +55,7 @@ func _on_texture_button_pressed() -> void:
 func _on_texture_button_pressed_phone() -> void:
 	$ColorRect3.queue_free()
 	GlobalVariables.playerInfo["device"] = "phone"
+
+
+func _on_button_continue_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/main.tscn")
