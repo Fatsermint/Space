@@ -7,10 +7,11 @@ var cageScene: PackedScene = preload("res://Scenes/cage.tscn")
 @onready var camera: Camera2D = $Camera
 @onready var bullets: Node = $bullets
 signal textReady
+signal levelGenerateReady
 var settings = settingsScene.instantiate()
 var finishing = false
 func generate_level(levelNumber):
-	var levelNum = levelNumber+1
+	var levelNum = levelNumber + 1
 	var level = GlobalVariables.levels[levelNum]
 	var root = get_tree().get_root()
 
@@ -27,7 +28,9 @@ func generate_level(levelNumber):
 
 		for i in level:
 			for enemytype in GlobalVariables.enemyInfo:
+				
 				if i == enemytype:
+					
 					var num = 0
 					for enemychild in GlobalVariables.levels[levelNum][enemytype].size():
 						var eneminfo = GlobalVariables.enemyInfo[enemytype]
@@ -35,7 +38,7 @@ func generate_level(levelNumber):
 						var packedScene:PackedScene = load(path)
 						var enem = packedScene.instantiate()
 						enem.editor_description = str(enemytype)
-						add_child(enem)
+						self.add_child(enem)
 						if not eneminfo.child == null:
 							enem.add_to_group("newChild")
 						enem.add_to_group("enemy")
@@ -43,6 +46,8 @@ func generate_level(levelNumber):
 						enem.global_position = Vector2(level[enemytype][num][0][0], level[enemytype][num][0][1])
 						enem.find_child("health").value = level[enemytype][num][1]
 						num = num +1
+						print(enem.name, ", ", enem.global_position)
+						
 						
 	if level["cages"] == true:
 		Generate_Cages()
@@ -52,7 +57,7 @@ func generate_level(levelNumber):
 		add_child(settings)
 		
 	
-	
+	levelGenerateReady.emit()
 func Generate_Cages():
 
 	for random in randi_range(2, 10):
@@ -91,13 +96,11 @@ func check_end_level(selfEnemy):
 			print(child)
 			
 			if not child == selfEnemy:
-				print("idik")
 				end = false
 		else:
 			pass
 	if end == true:
 		await _finish_level_text()
-		_finis_level(GlobalVariables.playerInfo["level"])
 	end = true
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("escape"):
@@ -134,14 +137,13 @@ func _process(delta: float) -> void:
 		
 func _finish_level_text():
 	_finis_level(GlobalVariables.playerInfo["level"])
-	
 	var position1 = Vector2(-113, -820.0)
 	var position2 = Vector2(-113, 100)
 	
 	
 	var label = $Label
 	var tween = create_tween()
-	label.text = "Level "+str(GlobalVariables.playerInfo["level"]+1) 
+	label.text = "Level "+str(GlobalVariables.playerInfo["level"]+2) 
 	label.position.y = -1500
 	label.visible = true
 	tween.tween_property(label, "position", position1, 0.2)
@@ -152,6 +154,7 @@ func _finish_level_text():
 	tween2.tween_property(label, "position", position2, 0.2)
 	await get_tree().create_timer(0.8, false).timeout
 	GlobalVariables.playerInfo["level"]+= 1
+	
 	textReady.emit()
 
 func do_effects(delta):
@@ -173,7 +176,10 @@ func _finis_level(level):
 	for child in get_children():
 		if not GlobalVariables.whitelistedObjectsNames.has(child.name):
 			child.queue_free()
-	
-	await textReady
-	generate_level(GlobalVariables.playerInfo["level"])
+
+func _on_text_ready() -> void:
+	print("next genersate")
 	finishing = false
+	
+	await generate_level(GlobalVariables.playerInfo["level"])
+	print("generate ready")
