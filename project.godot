@@ -19,6 +19,7 @@ run/max_fps=1000
 
 GlobalVariables="*uid://b4bautuoy0tcu"
 DamageUi="*uid://ba2yn3xjsamik"
+SaveLoad="*uid://k33lf6a5hf1s"
 
 [display]
 
