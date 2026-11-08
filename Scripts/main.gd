@@ -60,7 +60,7 @@ func generate_level(levelNumber):
 	levelGenerateReady.emit()
 func Generate_Cages():
 
-	for random in randi_range(2, 10):
+	for random in randi_range(2, 5):
 			var cage = cageScene.instantiate()
 			call_deferred("add_child", cage)
 			cage.global_position = Vector2(randi_range(-250, 250),randi_range(-1000, -2500))
@@ -118,8 +118,10 @@ func pause_gameplay():
 				child.process_mode = Node.PROCESS_MODE_DISABLED
 func _ready() -> void:
 	generate_level(GlobalVariables.playerInfo["level"])
-
+var coins = 0
 func _process(delta: float) -> void:
+	if GlobalVariables.playerInfo["coins"] > coins:
+		$AudioStreamPlayer2D.play()
 	if not GlobalVariables.playerInfo["hp"] > 0:
 		GlobalVariables.playerInfo["failed"] = true
 	if GlobalVariables.playerInfo.failed == true:
@@ -134,7 +136,7 @@ func _process(delta: float) -> void:
 		var newNode = Node.new()
 		add_child(newNode)
 		newNode.name = "bullets"
-		
+	coins = GlobalVariables.playerInfo["coins"]
 func _finish_level_text():
 	_finis_level(GlobalVariables.playerInfo["level"])
 	var position1 = Vector2(-113, -820.0)

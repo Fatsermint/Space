@@ -69,4 +69,5 @@ func _on_animation_player_animation_finished(explosion) -> void:
 		GlobalVariables.playerInfo.coins += GlobalVariables.enemyInfo[type].value * GlobalVariables.playerInfo["effects"]["coinEffect"]["coinEffect"]
 	else:
 		GlobalVariables.playerInfo.coins += GlobalVariables.enemyInfo[type].value 
+	
 	self.queue_free()

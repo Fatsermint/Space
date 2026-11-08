@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 		var bul = bullet.duplicate()
 		bul.name = GlobalVariables.playerInfo.bullet
 		self.get_parent().find_child("bullets").add_child(bul)
+		$AudioStreamPlayer2D.play()
 		
 		if timesFired % 2 !=0:
 			bul.position.x = self.position.x -12

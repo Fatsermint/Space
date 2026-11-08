@@ -52,14 +52,6 @@ text = "HP"
 layout_mode = 2
 text = "100"
 
-[node name="Label4" type="Label" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1237977917]
-layout_mode = 2
-text = "SNAP"
-
-[node name="CheckButton" type="CheckButton" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1712147158]
-layout_mode = 2
-button_pressed = true
-
 [node name="CodeEdit" type="CodeEdit" parent="." unique_id=1972445639]
 anchors_preset = 2
 anchor_top = 1.0
@@ -248,8 +240,8 @@ text = "Cages"
 layout_mode = 2
 
 [connection signal="pressed" from="BoxContainer2/BoxContainer/HBoxContainer/Button" to="." method="_on_button_add_pressed"]
+[connection signal="text_changed" from="BoxContainer2/BoxContainer/HBoxContainer/LineEdit" to="Sprite2D" method="_on_line_edit_text_changed"]
 [connection signal="text_changed" from="BoxContainer2/BoxContainer/HBoxContainer/LineEdit2" to="Sprite2D" method="_on_line_edit_2_text_changed"]
-[connection signal="toggled" from="BoxContainer2/BoxContainer/HBoxContainer/CheckButton" to="Sprite2D" method="_on_check_button_toggled"]
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
