@@ -1,259 +1,403 @@
 [gd_scene format=3 uid="uid://58ugb1x2gdgn"]
 
-[ext_resource type="Script" uid="uid://blrlo7tg7nhfv" path="res://Scenes/level_editor.gd" id="1_5o76e"]
-[ext_resource type="Texture2D" uid="uid://bwsn8jisdhsmc" path="res://Assets/SpaceRage/SpaceRage/Enemies/enemy_1_b_m.png" id="2_rot6e"]
-[ext_resource type="Script" uid="uid://3ps16tvkbase" path="res://Scenes/sprite_2d.gd" id="3_iwybi"]
-[ext_resource type="Texture2D" uid="uid://cabb8d7t0x0q" path="res://Assets/SpaceRage/SpaceRage/Enemies/enemy_2_g_m.png" id="3_wchaa"]
-[ext_resource type="Texture2D" uid="uid://b0erporhpqn7" path="res://Assets/SpaceRage/SpaceRage/Enemies/mine_1_01.png" id="4_iwybi"]
-[ext_resource type="Script" uid="uid://w3drow6wiqti" path="res://Scenes/label.gd" id="4_rot6e"]
+[ext_resource type="Script" uid="uid://jbevkxshknuq" path="res://Scripts/start_screen.gd" id="1_n1xa8"]
+[ext_resource type="Texture2D" uid="uid://dqi7pemqh5rgu" path="res://Assets/desktop.svg" id="2_rot6e"]
+[ext_resource type="Texture2D" uid="uid://b25t7sxiqvbp1" path="res://Assets/mobile.svg" id="3_wchaa"]
 
-[node name="Node2D" type="Node2D" unique_id=2111736086]
-script = ExtResource("1_5o76e")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8r30"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.38, 0.38, 0.38, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0, 0.45490196)
+shadow_size = 2
+shadow_offset = Vector2(-4, 4)
 
-[node name="BoxContainer2" type="BoxContainer" parent="." unique_id=544103877]
-offset_right = 40.0
-offset_bottom = 40.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ainjc"]
 
-[node name="BoxContainer" type="BoxContainer" parent="BoxContainer2" unique_id=1332457629]
-layout_mode = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60ddj"]
+draw_center = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer2/BoxContainer" unique_id=116676622]
-layout_mode = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e717"]
 
-[node name="Button" type="Button" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1035317346]
-layout_mode = 2
-text = "Add"
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1202398794]
+script = ExtResource("1_n1xa8")
 
-[node name="Button2" type="Button" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=133378127]
-layout_mode = 2
-text = "Remove"
-
-[node name="Label" type="Label" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1206064297]
-layout_mode = 2
-text = "X"
-
-[node name="LineEdit" type="LineEdit" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=179240601]
-layout_mode = 2
-text = "0"
-
-[node name="Label2" type="Label" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=727897502]
-layout_mode = 2
-text = "Y"
-
-[node name="LineEdit2" type="LineEdit" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1514169011]
-layout_mode = 2
-text = "0"
-
-[node name="Label3" type="Label" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=322370495]
-layout_mode = 2
-text = "HP"
-
-[node name="LineEdit3" type="LineEdit" parent="BoxContainer2/BoxContainer/HBoxContainer" unique_id=1884057091]
-layout_mode = 2
-text = "100"
-
-[node name="CodeEdit" type="CodeEdit" parent="." unique_id=1972445639]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = 750.0
-offset_right = 475.0
-offset_bottom = 1000.0
-grow_vertical = 0
-draw_tabs = true
-
-[node name="Label" type="Label" parent="CodeEdit" unique_id=1581940823]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -27.5
-offset_top = -20.0
-offset_right = 28.5
-offset_bottom = 3.0
-grow_horizontal = 2
-text = "Output"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1830485907]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1089065757]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 41.0
-offset_right = 74.0
-offset_bottom = 138.0
+offset_left = -161.0
+offset_top = -165.25
+offset_right = 161.0
+offset_bottom = 165.25
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 90
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1536406529]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=390176936]
 layout_mode = 2
-text = "Enemy 1"
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1643594311]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=986204450]
+texture_filter = 1
 layout_mode = 2
-text = "Enemy 2"
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Start Game"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=480350220]
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer" unique_id=295997645]
 layout_mode = 2
-text = "Enemy 3"
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="level" type="Node2D" parent="." unique_id=819986527]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1567448992]
-editor_description = "enemy1"
-visible = false
-position = Vector2(-2, 6)
-texture = ExtResource("2_rot6e")
-script = ExtResource("3_iwybi")
-
-[node name="Button" type="CheckButton" parent="Sprite2D" unique_id=1403829660]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = -28.0
-offset_top = -24.0
-offset_right = 27.0
-offset_bottom = 22.0
-
-[node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=1014492717]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -32.0
-offset_right = -32.0
-offset_bottom = -32.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0.2784314)
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=27792607]
-editor_description = "enemy2"
-visible = false
-position = Vector2(-2, 6)
-texture = ExtResource("3_wchaa")
-script = ExtResource("3_iwybi")
-
-[node name="Button" type="CheckButton" parent="Sprite2D2" unique_id=1308252389]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = -28.0
-offset_top = -24.0
-offset_right = 27.0
-offset_bottom = 22.0
-
-[node name="ColorRect" type="ColorRect" parent="Sprite2D2" unique_id=912170554]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -32.0
-offset_right = -32.0
-offset_bottom = -32.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0.2784314)
-
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1960919909]
-editor_description = "enemy3"
-visible = false
-position = Vector2(-2, 6)
-texture = ExtResource("4_iwybi")
-script = ExtResource("3_iwybi")
-
-[node name="Button" type="CheckButton" parent="Sprite2D3" unique_id=1288923858]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = -28.0
-offset_top = -24.0
-offset_right = 27.0
-offset_bottom = 22.0
-
-[node name="ColorRect" type="ColorRect" parent="Sprite2D3" unique_id=2048422662]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -32.0
-offset_right = -32.0
-offset_bottom = -32.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0.2784314)
-
-[node name="Label" type="Label" parent="." unique_id=1735435227]
-offset_left = 130.0
-offset_top = 384.0
-offset_right = 480.0
-offset_bottom = 407.0
-text = "This doesn't really work yet and this is very buggy"
-script = ExtResource("4_rot6e")
-
-[node name="LevelSettings" type="VBoxContainer" parent="." unique_id=427143761]
-offset_left = 480.0
-offset_top = 750.0
-offset_right = 520.0
-offset_bottom = 790.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelSettings" unique_id=92650912]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer5" unique_id=878050386]
+texture_filter = 1
 layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Continue"
 
-[node name="Label" type="Label" parent="LevelSettings/VBoxContainer" unique_id=1089167350]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=2028201153]
 layout_mode = 2
-text = "Level Number"
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="LineEdit" type="LineEdit" parent="LevelSettings/VBoxContainer" unique_id=1194789030]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1305312739]
+texture_filter = 1
 layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Tutorial"
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="LevelSettings" unique_id=640116828]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=937875071]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="LevelSettings/VBoxContainer2" unique_id=1756388421]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=449162230]
+texture_filter = 1
 layout_mode = 2
-text = "Player"
-
-[node name="LineEdit" type="CheckButton" parent="LevelSettings/VBoxContainer2" unique_id=680298888]
-layout_mode = 2
-
-[node name="VBoxContainer3" type="HBoxContainer" parent="LevelSettings" unique_id=2003929980]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="LevelSettings/VBoxContainer3" unique_id=1025164268]
-layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
 text = "Settings"
 
-[node name="LineEdit" type="CheckButton" parent="LevelSettings/VBoxContainer3" unique_id=482065853]
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=912441165]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=78795502]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Level editor"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer" unique_id=1815359190]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer6" unique_id=212153123]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Stats"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=918650997]
+visible = false
+offset_left = 75.0
+offset_top = 200.0
+offset_right = 525.0
+offset_bottom = 800.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+color = Color(0.79, 0.79, 0.79, 0.61960787)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect" unique_id=648926474]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_right = 225.0
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=2073913966]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer2" unique_id=1697995681]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=102529905]
 layout_mode = 2
 
-[node name="VBoxContainer4" type="HBoxContainer" parent="LevelSettings" unique_id=1508291783]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer" unique_id=1332182103]
+layout_mode = 2
+text = "Show FPS"
+
+[node name="CheckButton" type="CheckButton" parent="ColorRect/VBoxContainer2/HBoxContainer" unique_id=828885024]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_60ddj")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=1250794561]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="LevelSettings/VBoxContainer4" unique_id=1739611596]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer3" unique_id=1733789729]
 layout_mode = 2
-text = "Cages"
+text = "Limited FPS"
 
-[node name="LineEdit" type="CheckButton" parent="LevelSettings/VBoxContainer4" unique_id=132406981]
+[node name="CheckButton" type="CheckButton" parent="ColorRect/VBoxContainer2/HBoxContainer3" unique_id=1131305431]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_60ddj")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=718631659]
 layout_mode = 2
 
-[connection signal="pressed" from="BoxContainer2/BoxContainer/HBoxContainer/Button" to="." method="_on_button_add_pressed"]
-[connection signal="text_changed" from="BoxContainer2/BoxContainer/HBoxContainer/LineEdit" to="Sprite2D" method="_on_line_edit_text_changed"]
-[connection signal="text_changed" from="BoxContainer2/BoxContainer/HBoxContainer/LineEdit2" to="Sprite2D" method="_on_line_edit_2_text_changed"]
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="button_down" from="Sprite2D/Button" to="Sprite2D" method="_on_button_button_down"]
-[connection signal="button_up" from="Sprite2D/Button" to="Sprite2D" method="_on_button_button_up"]
-[connection signal="pressed" from="Sprite2D/Button" to="Sprite2D" method="_on_button_pressed"]
-[connection signal="toggled" from="Sprite2D/Button" to="Sprite2D" method="_on_button_toggled"]
-[connection signal="button_down" from="Sprite2D2/Button" to="Sprite2D2" method="_on_button_button_down"]
-[connection signal="button_up" from="Sprite2D2/Button" to="Sprite2D2" method="_on_button_button_up"]
-[connection signal="pressed" from="Sprite2D2/Button" to="Sprite2D2" method="_on_button_pressed"]
-[connection signal="toggled" from="Sprite2D2/Button" to="Sprite2D2" method="_on_button_toggled"]
-[connection signal="button_down" from="Sprite2D3/Button" to="Sprite2D3" method="_on_button_button_down"]
-[connection signal="button_up" from="Sprite2D3/Button" to="Sprite2D3" method="_on_button_button_up"]
-[connection signal="pressed" from="Sprite2D3/Button" to="Sprite2D3" method="_on_button_pressed"]
-[connection signal="toggled" from="Sprite2D3/Button" to="Sprite2D3" method="_on_button_toggled"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer4" unique_id=2024524123]
+layout_mode = 2
+text = "These dont work yet"
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=1182475283]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -42.0
+offset_right = 110.0
+offset_bottom = 152.0
+grow_horizontal = 0
+scale = Vector2(0.275, 0.275)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
+text = "x"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1497493035]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -262.0
+offset_right = 262.0
+offset_bottom = 101.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1140153364]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Failed at level x"
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1162844144]
+visible = false
+offset_left = 75.0
+offset_top = 200.0
+offset_right = 525.0
+offset_bottom = 800.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+color = Color(0.79, 0.79, 0.79, 0.61960787)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect2" unique_id=1084795095]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_right = 225.0
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=1001470592]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer2" unique_id=1248978461]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Tutorial"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=938771608]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer3" unique_id=1553146706]
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=801141548]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer4" unique_id=108145468]
+layout_mode = 2
+text = "Press A/D to move"
+horizontal_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=1870908592]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer5" unique_id=8400487]
+layout_mode = 2
+text = "F to fire"
+horizontal_alignment = 1
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=1486295559]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer6" unique_id=1329873199]
+layout_mode = 2
+text = "ESC to open settings"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect2" unique_id=1170956572]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -42.0
+offset_right = 110.0
+offset_bottom = 152.0
+grow_horizontal = 0
+scale = Vector2(0.275, 0.275)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
+text = "x"
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=258011368]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.41, 0.41, 0.41, 1)
+
+[node name="Label" type="Label" parent="ColorRect3" unique_id=1348679453]
+layout_mode = 0
+offset_top = 237.0
+offset_right = 600.0
+offset_bottom = 737.0
+text = "Select device type"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect3" unique_id=1013117331]
+top_level = true
+z_index = 10
+layout_mode = 0
+offset_top = 300.0
+offset_right = 90.0
+offset_bottom = 340.0
+scale = Vector2(6.6658273, 6.667364)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect3/HBoxContainer3" unique_id=420505252]
+z_index = -4
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+mouse_filter = 1
+color = Color(0.52, 0.52, 0.52, 1)
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect3/HBoxContainer3/ColorRect" unique_id=1252088408]
+layout_mode = 0
+offset_left = 2.9999998
+offset_top = 4.0
+offset_right = 108.970146
+offset_bottom = 123.402985
+scale = Vector2(0.335, 0.335)
+texture_normal = ExtResource("2_rot6e")
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect3/HBoxContainer3" unique_id=945073406]
+z_index = -4
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+mouse_filter = 1
+color = Color(0.52, 0.52, 0.52, 1)
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect3/HBoxContainer3/ColorRect2" unique_id=1371120090]
+layout_mode = 0
+offset_left = 2.9999998
+offset_top = 4.0
+offset_right = 108.970146
+offset_bottom = 123.402985
+scale = Vector2(0.335, 0.335)
+texture_normal = ExtResource("3_wchaa")
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1096060265]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -151.0
+offset_right = 151.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect4" unique_id=2045706742]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 20
+text = "aaaaaaaa"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_start_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/Button" to="." method="_on_button_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer6/Button" to="." method="_on_button_pressed_stats"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_settings_escape_pressed"]
+[connection signal="pressed" from="ColorRect2/Button" to="." method="_on_button_tutorial_escape_pressed"]
+[connection signal="pressed" from="ColorRect3/HBoxContainer3/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ColorRect3/HBoxContainer3/ColorRect2/TextureButton" to="." method="_on_texture_button_pressed_phone"]

@@ -1,108 +1,403 @@
 [gd_scene format=3 uid="uid://d4mo8inrt3x10"]
 
-[ext_resource type="Script" uid="uid://clr4qo5juqok0" path="res://Scripts/character_body_2d.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://k2slkmdwc5du" path="res://Assets/SpaceRage/SpaceRage/Player/player_b_l1.png" id="2_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://dwe4n3kh8da85" path="res://Assets/fireball.svg" id="3_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://3ttdlq4hfrsj" path="res://Assets/drawing.svg" id="4_vgqql"]
-[ext_resource type="AudioStream" uid="uid://cu70vautogd4i" path="res://Assets/mixkit-short-laser-gun-shot-1670.wav" id="5_fkybt"]
+[ext_resource type="Script" uid="uid://jbevkxshknuq" path="res://Scripts/start_screen.gd" id="1_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://dqi7pemqh5rgu" path="res://Assets/desktop.svg" id="2_vgqql"]
+[ext_resource type="Texture2D" uid="uid://b25t7sxiqvbp1" path="res://Assets/mobile.svg" id="3_fkybt"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g1hc3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8r30"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.38, 0.38, 0.38, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0, 0.45490196)
+shadow_size = 2
+shadow_offset = Vector2(-4, 4)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g1hc3"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 12.48
-spread = 24.737
-initial_velocity_min = 179.03
-initial_velocity_max = 454.84
-gravity = Vector3(0, 98, 0)
-use_scale_3d = true
-scale_3d_min = Vector3(0.18, 0.18, 0.18)
-scale_3d_max = Vector3(0.74, 0.74, 0.74)
-scale_min = 0.099999994
-scale_max = 0.75
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ainjc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1hc3"]
-size = Vector2(49, 56.999996)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60ddj"]
+draw_center = false
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=822506584]
-rotation = 3.1415927
-script = ExtResource("1_cvnsp")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e717"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=818143741]
-shape = SubResource("CircleShape2D_g1hc3")
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1202398794]
+script = ExtResource("1_6t5aa")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1549867640]
-rotation = 3.1415927
-texture = ExtResource("2_6t5aa")
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1089065757]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -165.25
+offset_right = 161.0
+offset_bottom = 165.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 90
 
-[node name="Node" type="Node2D" parent="." unique_id=1522143223]
-position = Vector2(-2.1855694e-06, -25)
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=390176936]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="GPUParticles2D4" type="GPUParticles2D" parent="Node" unique_id=1129484798]
-position = Vector2(0.99999887, -2)
-rotation = -1.5707964
-amount = 50
-texture = ExtResource("4_vgqql")
-lifetime = 0.3
-preprocess = 0.76
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_g1hc3")
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=986204450]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Start Game"
 
-[node name="GPUParticles2D5" type="GPUParticles2D" parent="Node" unique_id=1623139225]
-position = Vector2(15, 2.999998)
-rotation = -1.5707964
-amount = 50
-texture = ExtResource("4_vgqql")
-lifetime = 0.3
-preprocess = 0.76
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_g1hc3")
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer" unique_id=295997645]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="GPUParticles2D6" type="GPUParticles2D" parent="Node" unique_id=444943342]
-position = Vector2(-17, 3.000002)
-rotation = -1.5707964
-amount = 50
-texture = ExtResource("4_vgqql")
-lifetime = 0.3
-preprocess = 0.76
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_g1hc3")
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer5" unique_id=878050386]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Continue"
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Node" unique_id=865905018]
-position = Vector2(1.0000002, 3)
-rotation = -1.5707964
-amount = 25
-texture = ExtResource("3_6t5aa")
-lifetime = 0.3
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_g1hc3")
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=2028201153]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="Node" unique_id=1914383366]
-position = Vector2(15.000001, 7.999999)
-rotation = -1.5707964
-amount = 25
-texture = ExtResource("3_6t5aa")
-lifetime = 0.3
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_g1hc3")
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1305312739]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Tutorial"
 
-[node name="GPUParticles2D3" type="GPUParticles2D" parent="Node" unique_id=455309467]
-position = Vector2(-17, 8.000002)
-rotation = -1.5707964
-amount = 25
-texture = ExtResource("3_6t5aa")
-lifetime = 0.3
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_g1hc3")
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=937875071]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Area2D" type="Area2D" parent="." unique_id=414249907]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer3" unique_id=449162230]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Settings"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1010962214]
-position = Vector2(-1.5, 0.49999827)
-shape = SubResource("RectangleShape2D_g1hc3")
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=912441165]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1743452073]
-stream = ExtResource("5_fkybt")
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=78795502]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Level editor"
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer" unique_id=1815359190]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer6" unique_id=212153123]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Stats"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=918650997]
+visible = false
+offset_left = 75.0
+offset_top = 200.0
+offset_right = 525.0
+offset_bottom = 800.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+color = Color(0.79, 0.79, 0.79, 0.61960787)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect" unique_id=648926474]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_right = 225.0
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=2073913966]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer2" unique_id=1697995681]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=102529905]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer" unique_id=1332182103]
+layout_mode = 2
+text = "Show FPS"
+
+[node name="CheckButton" type="CheckButton" parent="ColorRect/VBoxContainer2/HBoxContainer" unique_id=828885024]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_60ddj")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=1250794561]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer3" unique_id=1733789729]
+layout_mode = 2
+text = "Limited FPS"
+
+[node name="CheckButton" type="CheckButton" parent="ColorRect/VBoxContainer2/HBoxContainer3" unique_id=1131305431]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_60ddj")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect/VBoxContainer2" unique_id=718631659]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2/HBoxContainer4" unique_id=2024524123]
+layout_mode = 2
+text = "These dont work yet"
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=1182475283]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -42.0
+offset_right = 110.0
+offset_bottom = 152.0
+grow_horizontal = 0
+scale = Vector2(0.275, 0.275)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
+text = "x"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1497493035]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -262.0
+offset_right = 262.0
+offset_bottom = 101.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1140153364]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Failed at level x"
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1162844144]
+visible = false
+offset_left = 75.0
+offset_top = 200.0
+offset_right = 525.0
+offset_bottom = 800.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+color = Color(0.79, 0.79, 0.79, 0.61960787)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect2" unique_id=1084795095]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_right = 225.0
+offset_bottom = 81.0
+grow_horizontal = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=1001470592]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer2" unique_id=1248978461]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Tutorial"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=938771608]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer3" unique_id=1553146706]
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=801141548]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer4" unique_id=108145468]
+layout_mode = 2
+text = "Press A/D to move"
+horizontal_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=1870908592]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer5" unique_id=8400487]
+layout_mode = 2
+text = "F to fire"
+horizontal_alignment = 1
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="ColorRect2/VBoxContainer2" unique_id=1486295559]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer2/HBoxContainer6" unique_id=1329873199]
+layout_mode = 2
+text = "ESC to open settings"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect2" unique_id=1170956572]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -42.0
+offset_right = 110.0
+offset_bottom = 152.0
+grow_horizontal = 0
+scale = Vector2(0.275, 0.275)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
+text = "x"
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=258011368]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.41, 0.41, 0.41, 1)
+
+[node name="Label" type="Label" parent="ColorRect3" unique_id=1348679453]
+layout_mode = 0
+offset_top = 237.0
+offset_right = 600.0
+offset_bottom = 737.0
+text = "Select device type"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect3" unique_id=1013117331]
+top_level = true
+z_index = 10
+layout_mode = 0
+offset_top = 300.0
+offset_right = 90.0
+offset_bottom = 340.0
+scale = Vector2(6.6658273, 6.667364)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect3/HBoxContainer3" unique_id=420505252]
+z_index = -4
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+mouse_filter = 1
+color = Color(0.52, 0.52, 0.52, 1)
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect3/HBoxContainer3/ColorRect" unique_id=1252088408]
+layout_mode = 0
+offset_left = 2.9999998
+offset_top = 4.0
+offset_right = 108.970146
+offset_bottom = 123.402985
+scale = Vector2(0.335, 0.335)
+texture_normal = ExtResource("2_vgqql")
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect3/HBoxContainer3" unique_id=945073406]
+z_index = -4
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+mouse_filter = 1
+color = Color(0.52, 0.52, 0.52, 1)
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect3/HBoxContainer3/ColorRect2" unique_id=1371120090]
+layout_mode = 0
+offset_left = 2.9999998
+offset_top = 4.0
+offset_right = 108.970146
+offset_bottom = 123.402985
+scale = Vector2(0.335, 0.335)
+texture_normal = ExtResource("3_fkybt")
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1096060265]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -151.0
+offset_right = 151.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect4" unique_id=2045706742]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 20
+text = "aaaaaaaa"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_start_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/Button" to="." method="_on_button_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer6/Button" to="." method="_on_button_pressed_stats"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_settings_escape_pressed"]
+[connection signal="pressed" from="ColorRect2/Button" to="." method="_on_button_tutorial_escape_pressed"]
+[connection signal="pressed" from="ColorRect3/HBoxContainer3/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ColorRect3/HBoxContainer3/ColorRect2/TextureButton" to="." method="_on_texture_button_pressed_phone"]

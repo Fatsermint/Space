@@ -40,7 +40,7 @@ offset_right = 161.0
 offset_bottom = 165.25
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 124
+theme_override_constants/separation = 90
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=390176936]
 layout_mode = 2
@@ -116,6 +116,21 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
 text = "Level editor"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer" unique_id=1815359190]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer6" unique_id=212153123]
+texture_filter = 1
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_i8r30")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ainjc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i8r30")
+text = "Stats"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=918650997]
 visible = false
@@ -193,6 +208,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
 text = "x"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1497493035]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -295,7 +311,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_5e717")
 text = "x"
 
 [node name="ColorRect3" type="ColorRect" parent="." unique_id=258011368]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -354,11 +369,34 @@ offset_bottom = 123.402985
 scale = Vector2(0.335, 0.335)
 texture_normal = ExtResource("3_60ddj")
 
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1096060265]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -151.0
+offset_right = 151.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect4" unique_id=2045706742]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 20
+text = "aaaaaaaa"
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer5/Button" to="." method="_on_button_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer4/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer6/Button" to="." method="_on_button_pressed_stats"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_settings_escape_pressed"]
 [connection signal="pressed" from="ColorRect2/Button" to="." method="_on_button_tutorial_escape_pressed"]
 [connection signal="pressed" from="ColorRect3/HBoxContainer3/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
